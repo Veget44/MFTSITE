@@ -34,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);borde
 .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
 .nav-logo-text{font-size:16px;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:-0.02em}
 .nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:14px;color:rgba(255,255,255,0.45);transition:color .2s;cursor:pointer}
+.nav-links a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s;cursor:pointer}
 .nav-links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .lang-switcher{display:flex;align-items:center;background:rgba(255,255,255,0.08);border-radius:8px;padding:3px}
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);borde
 
 /* HERO */
 .hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;padding:0 48px;position:relative;overflow:hidden}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
 .hero-glow{position:absolute;top:10%;right:5%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(24,64,204,0.2) 0%,transparent 65%);pointer-events:none}
 .hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding:120px 0 80px;position:relative;z-index:1}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px 6px 10px;margin-bottom:24px;background:rgba(255,255,255,0.05)}
@@ -55,29 +55,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);borde
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 .tag-text{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.08em;text-transform:uppercase}
 .hero h1{font-size:clamp(42px,5vw,70px);font-weight:900;color:#fff;line-height:1.04;letter-spacing:-0.03em;margin-bottom:20px}
-.hero h1 .accent{color:#6B8FFF}
-.hero-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.75;max-width:440px;margin-bottom:36px}
+.hero h1 .accent{color:rgba(255,255,255,0.55)}
+.hero-sub{font-size:17px;font-weight:400;color:rgba(255,255,255,0.65);line-height:1.75;max-width:440px;margin-bottom:36px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
 .btn-blue{background:var(--blue);color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;font-family:inherit;border:none;cursor:pointer;transition:opacity .2s;white-space:nowrap}
 .btn-blue:hover{opacity:.85}
 .btn-ghost{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.15);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:500;font-family:inherit;cursor:pointer;transition:all .2s;white-space:nowrap}
 .btn-ghost:hover{border-color:rgba(255,255,255,0.35);color:#fff}
 .hero-proof{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.proof-pill{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.35);font-weight:400}
+.proof-pill{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:400}
 .proof-pill::before{content:'✓';color:#4ade80;font-weight:700;font-size:12px}
 
 /* HERO CTA BOX */
 .hero-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:22px;backdrop-filter:blur(4px)}
 .hb-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
 .hb-heading{font-size:28px;font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.15}
-.hb-heading span{color:#6B8FFF}
-.hb-body{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.65}
+.hb-heading span{color:rgba(255,255,255,0.6)}
+.hb-body{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65}
 .hb-checks{display:flex;flex-direction:column;gap:10px}
 .hb-check{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6)}
 .hb-check-icon{width:20px;height:20px;border-radius:50%;background:rgba(74,222,128,0.15);display:flex;align-items:center;justify-content:center;font-size:10px;color:#4ade80;flex-shrink:0;font-weight:700}
 .hb-btn{background:#fff;color:var(--navy);padding:14px;border-radius:10px;font-size:15px;font-weight:700;font-family:inherit;border:none;cursor:pointer;transition:opacity .2s;text-align:center}
 .hb-btn:hover{opacity:.9}
-.hb-note{font-size:12px;color:rgba(255,255,255,0.2);text-align:center}
+.hb-note{font-size:12px;color:rgba(255,255,255,0.45);text-align:center}
 
 /* STATS BAR */
 .stats-bar{background:var(--bg2);border-bottom:1px solid var(--rule);padding:28px 48px}
@@ -85,13 +85,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);borde
 .stat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 24px;border-right:1px solid var(--rule)}
 .stat:last-child{border-right:none}
 .stat-num{font-size:32px;font-weight:900;color:var(--ink);letter-spacing:-0.04em;line-height:1}
-.stat-label{font-size:12px;color:var(--gray);font-weight:400;text-align:center;line-height:1.4}
+.stat-label{font-size:12px;color:var(--ink2);font-weight:500;text-align:center;line-height:1.4}
 
 /* STRIP */
 .strip{background:var(--blue);padding:12px 0;overflow:hidden;white-space:nowrap}
 .strip-track{display:inline-flex;gap:48px;animation:marquee 32s linear infinite}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.strip-item{font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:.04em;text-transform:uppercase}
+.strip-item{font-size:12px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:.04em;text-transform:uppercase}
 
 /* SECTIONS */
 .section{padding:96px 48px}
@@ -115,7 +115,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);borde
 .wc-items{display:flex;flex-direction:column;gap:12px}
 .wc-item{display:flex;gap:10px;font-size:14px;line-height:1.65}
 .prob .wc-item{color:var(--gray)}
-.sol .wc-item{color:rgba(255,255,255,0.55)}
+.sol .wc-item{color:rgba(255,255,255,0.75)}
 .wi-icon{flex-shrink:0;margin-top:2px;font-size:13px}
 
 /* HOW */
@@ -136,7 +136,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);borde
 .tb-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.08);border-radius:100px;padding:5px 12px;margin-bottom:18px}
 .tb-tag span{font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:.08em;text-transform:uppercase}
 .tb-h{font-size:clamp(24px,2.8vw,36px);font-weight:900;color:#fff;letter-spacing:-0.025em;line-height:1.15;margin-bottom:12px}
-.tb-p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.65;max-width:480px}
+.tb-p{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.65;max-width:480px}
 .tb-right{position:relative;z-index:1;flex-shrink:0}
 .tb-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;min-width:240px}
 .tb-checks{display:flex;flex-direction:column;gap:8px}
@@ -318,7 +318,7 @@ footer{background:#090D1F;padding:64px 48px 36px}
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat"><div class="stat-num">38</div><div class="stat-label" data-i18n="stat1">Certified FLE teachers</div></div>
-    <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat2">Languages supported</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat2">Languages supported</div></div>
     <div class="stat"><div class="stat-num">30€</div><div class="stat-label" data-i18n="stat3">Per lesson, no hidden fees</div></div>
     <div class="stat"><div class="stat-num">15'</div><div class="stat-label" data-i18n="stat4">Free intro class, no card needed</div></div>
   </div>
@@ -522,27 +522,27 @@ footer{background:#090D1F;padding:64px 48px 36px}
 const T={
   en:{
     "nav.why":"Why MFT","nav.how":"How it works","nav.pricing":"Pricing","nav.teach":"Teach","nav.login":"Sign in","nav.cta":"Book free class →",
-    "hero.tag":"FREE 15-MIN INTRO CLASS","hero.h1":"Learn French.<br><span class='accent'>Really speak it.</span>","hero.sub":"1-on-1 video lessons with certified French teachers. Real conversations, real corrections, real progress.","hero.cta1":"Book my free class →","hero.cta2":"How it works","hero.p1":"No credit card","hero.p2":"All levels","hero.p3":"Cancel anytime",
-    "hb.label":"Your free intro class","hb.heading":"15 minutes.<br><span>On us.</span>","hb.body":"Pick a certified teacher, pick a time. No credit card, no commitment.","hb.c1":"Certified FLE teacher","hb.c2":"Real-time correction","hb.c3":"All levels welcome","hb.btn":"Book my free class →","hb.note":"38 certified teachers · Available this week",
-    "stat1":"Certified FLE teachers","stat2":"Languages supported","stat3":"Per lesson, no hidden fees","stat4":"Free intro class, no card needed",
+    "hero.tag":"FREE 15-MIN INTRO CLASS","hero.h1":"Stop studying French.<br><span class='accent'>Start speaking French.</span>","hero.sub":"Private lessons with certified French teachers. No apps, no scripts — just you, your teacher, and real French from day one.","hero.cta1":"Book my free class →","hero.cta2":"See how it works","hero.p1":"No credit card","hero.p2":"All levels","hero.p3":"No commitment",
+    "hb.label":"Your free intro class","hb.heading":"15 minutes.<br><span>On us.</span>","hb.body":"Choose your teacher, pick a slot. Your first 15 minutes are on us — no card, no strings.","hb.c1":"Certified FLE teacher","hb.c2":"Real-time correction","hb.c3":"All levels welcome","hb.btn":"Book my free class →","hb.note":"38 certified teachers · Book in under 3 minutes",
+    "stat1":"Certified FLE teachers","stat2":"Taught online, anywhere","stat3":"Per lesson — no hidden fees","stat4":"Intro class, free — no card needed",
     "strip":["Free 15-min intro class","38 certified FLE teachers","1-on-1 video lessons","All levels Pre-A1 to C1","Secure Stripe payment","Cancel 24h before","No commitment"],
-    "why.eyebrow":"THE PROBLEM","why.h2":"You've tried. It wasn't enough.","why.sub":"Apps teach you to recognise French. Only a real teacher teaches you to speak it.",
+    "why.eyebrow":"THE PROBLEM","why.h2":"You've tried the apps. Now try a real teacher.","why.sub":"Duolingo gives you points. A teacher gives you a voice.",
     "why.prob.label":"Why apps fall short","why.prob.title":"Learning without speaking doesn't teach you to speak.",
     "why.prob.items":["No correction on how you actually phrase things","No one to answer your questions in real time","Artificial situations far from real French life","No adaptation to your level, pace, or blocks"],
     "why.sol.label":"What a real teacher does","why.sol.title":"A human who listens, corrects, and keeps you talking.",
     "why.sol.items":["Corrects during the conversation — without stopping it","Answers your questions on the spot","Adapts the lesson to what you struggle to say","Keeps you speaking — that is how you learn"],
     "how.eyebrow":"HOW IT WORKS","how.h2":"From first lesson to first real conversation.",
     "how.steps":[["01","Level test","A quick 5-min test to place you on the CEFR scale. Free, instant.","Free · 5 min"],["02","Choose a teacher","Browse profiles matched to your level. Specialities, availability.","38 teachers"],["03","Book a slot","Pick a time. Secure Stripe payment — your money is protected.","Cancel 24h before"],["04","Your first lesson","Real scenario, real-time correction, your pace. Progress tracked.","1-on-1 video"]],
-    "trial.tag":"NO COMMITMENT","trial.h":"15 free minutes with a real teacher.","trial.p":"No credit card. No forced sign-up. Just a first conversation to see if MFT is right for you.","trial.btn":"Book my free session →","trial.c1":"No credit card","trial.c2":"Cancel anytime","trial.c3":"All levels welcome",
+    "trial.tag":"NO COMMITMENT","trial.h":"15 free minutes with a real teacher.","trial.p":"No credit card. No forced sign-up. Just a first conversation to see if MFT is right for you.","trial.btn":"Book my free session →","trial.c1":"No credit card","trial.c2":"Cancel up to 24h before","trial.c3":"All levels welcome",
     "testi.eyebrow":"TESTIMONIALS","testi.h2":"What students say",
     "testi.items":[["After 6 months on Duolingo I understood but couldn't speak. After 8 lessons with Sophie I had my first real conversation with my French in-laws.","Lena K.","Germany · A2 → B1"],["The teacher doesn't stop at every mistake. She corrects while keeping the conversation going. You improve without even noticing.","Marco S.","Italy · B1 → B2"],["I passed my DELF B2 on the first try. Thomas had me work exactly on the exam situations.","Ji-Young P.","South Korea · DELF B2"]],
     "teachers.eyebrow":"OUR TEACHERS","teachers.h2":"Certified. Vetted. Real.","teachers.sub":"Every teacher holds a FLE certification and passed our academic interview. Your payment goes directly to them.","teachers.cta":"See all teachers →",
     "pricing.eyebrow":"PRICING","pricing.h2":"Simple. Transparent. No surprises.","pricing.sub":"No subscription. No expiring credits. Save more when you commit to more lessons.",
-    "p1.label":"Per lesson","p1.desc":"Try it with no commitment.","p1.cta":"Get started →",
-    "p2.label":"5-lesson pack","p2.desc":"5 lessons at a better rate. Enough to feel the difference.","p2.cta":"Choose this pack →","p2.badge":"Most popular","p2.save":"Save 15 €",
-    "p3.label":"10-lesson pack","p3.desc":"Serious about French? Enough to gain a full CEFR level.","p3.cta":"Choose this pack →","p3.save":"Save 50 €",
-    "pf1":"All teachers","pf2":"Cancel 24h before","pf3":"Secure payment","pf4":"Everything in per-lesson","pf5":"Progress tracking","pf6":"Priority booking","pf7":"Monthly progress report","pf8":"Personalised follow-up",
-    "cf.h":"Your first lesson, this week.","cf.p":"Book a free 15-minute intro session. No credit card, no commitment.","cf.btn":"Book my free class →","cf.teach":"Are you a teacher?","cf.teachlink":"Join our team →",
+    "p1.label":"Per lesson","p1.desc":"One lesson, one teacher. See if it clicks.","p1.cta":"Get started →",
+    "p2.label":"5-lesson pack","p2.desc":"Five lessons at a better rate — most students notice real progress by lesson 3.","p2.cta":"Choose this pack →","p2.badge":"Most popular","p2.save":"Save 15 €",
+    "p3.label":"10-lesson pack","p3.desc":"Ten lessons is typically enough to move up a full CEFR level. Our most committed students choose this.","p3.cta":"Choose this pack →","p3.save":"Save 50 €",
+    "pf1":"All teachers","pf2":"Cancel up to 24h before","pf3":"Secure payment","pf4":"Everything in per-lesson","pf5":"Progress tracking","pf6":"Priority booking","pf7":"Monthly progress report","pf8":"Personalised follow-up",
+    "cf.h":"Your first real French conversation starts here.","cf.p":"15 minutes, free, no credit card. Meet your teacher and speak from minute one.","cf.btn":"Book my free class →","cf.teach":"Are you a teacher?","cf.teachlink":"Join our team →",
     "footer.tagline":"The platform that takes you from understanding to speaking.","footer.col1":"Students","footer.find":"Find a teacher","footer.test":"Level test","footer.pricing":"Pricing","footer.col2":"Teachers","footer.join":"Join MFT","footer.commission":"Commission & terms","footer.col3":"Legal","footer.mentions":"Legal notice","footer.cgu":"Terms","footer.privacy":"Privacy","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France",
     "modal.student":"Student","modal.teacher":"Teacher","modal.name":"Full name","modal.level":"Your French level","modal.password":"Password","modal.create":"Create my account →","modal.or":"or","modal.google":"Continue with Google","modal.cert":"FLE Certification","modal.rate":"Hourly rate (€)","modal.createteacher":"Create my teacher profile →",
     "modal.levels":["I want to take the level test","Pre-A1 — no French","A1 — a few words","A2 — basics","B1 — intermediate","B2 — upper-intermediate","C1 — advanced"],
@@ -550,27 +550,27 @@ const T={
   },
   fr:{
     "nav.why":"Pourquoi MFT","nav.how":"Comment ça marche","nav.pricing":"Tarifs","nav.teach":"Enseigner","nav.login":"Se connecter","nav.cta":"Séance gratuite →",
-    "hero.tag":"SÉANCE DÉCOUVERTE GRATUITE 15 MIN","hero.h1":"Apprenez le français.<br><span class='accent'>Parlez-le vraiment.</span>","hero.sub":"Des cours en visio 1-on-1 avec des professeurs certifiés FLE. Vraies conversations, vraies corrections, vrais progrès.","hero.cta1":"Réserver ma séance gratuite →","hero.cta2":"Comment ça marche","hero.p1":"Sans carte bancaire","hero.p2":"Tous niveaux","hero.p3":"Annulation libre",
-    "hb.label":"Votre séance découverte","hb.heading":"15 minutes.<br><span>Offertes.</span>","hb.body":"Choisissez un professeur certifié, choisissez un créneau. Sans carte bancaire, sans engagement.","hb.c1":"Professeur certifié FLE","hb.c2":"Correction en temps réel","hb.c3":"Tous niveaux acceptés","hb.btn":"Réserver ma séance gratuite →","hb.note":"38 professeurs certifiés · Disponibles cette semaine",
-    "stat1":"Professeurs certifiés FLE","stat2":"Langues supportées","stat3":"Par cours, sans frais cachés","stat4":"Séance découverte gratuite",
+    "hero.tag":"SÉANCE DÉCOUVERTE GRATUITE 15 MIN","hero.h1":"Fini les applis.<br><span class='accent'>Parlez enfin français.</span>","hero.sub":"Des cours particuliers avec de vrais professeurs certifiés. Pas d'algorithme, pas de script — juste vous, votre prof, et du français dès la première minute.","hero.cta1":"Réserver ma séance gratuite →","hero.cta2":"Voir comment ça marche","hero.p1":"Sans carte bancaire","hero.p2":"Tous niveaux","hero.p3":"Sans engagement",
+    "hb.label":"Votre séance découverte","hb.heading":"15 minutes.<br><span>Offertes.</span>","hb.body":"Choisissez votre prof, réservez un créneau. Vos 15 premières minutes sont offertes — sans carte, sans condition.","hb.c1":"Professeur certifié FLE","hb.c2":"Correction en temps réel","hb.c3":"Tous niveaux acceptés","hb.btn":"Réserver ma séance gratuite →","hb.note":"38 professeurs certifiés · Réservez en moins de 3 minutes",
+    "stat1":"Professeurs certifiés FLE","stat2":"Cours en ligne, où que vous soyez","stat3":"Par cours, sans frais cachés","stat4":"Séance découverte gratuite",
     "strip":["Séance découverte 15 min gratuite","38 professeurs certifiés FLE","Cours en visio 1-on-1","Tous niveaux Pré-A1 à C1","Paiement sécurisé Stripe","Annulation 24h avant","Sans engagement"],
-    "why.eyebrow":"LE PROBLÈME","why.h2":"Vous avez essayé. Ça n'a pas suffi.","why.sub":"Les apps vous apprennent à reconnaître le français. Seul un vrai prof vous apprend à le parler.",
+    "why.eyebrow":"LE PROBLÈME","why.h2":"Vous avez essayé les applis. Essayez un vrai professeur.","why.sub":"Duolingo vous donne des points. Un professeur vous donne la parole.",
     "why.prob.label":"Pourquoi les apps ne suffisent pas","why.prob.title":"Apprendre sans parler ne vous apprend pas à parler.",
     "why.prob.items":["Aucune correction sur votre façon de formuler","Personne pour répondre en temps réel","Situations artificielles loin de la vraie vie","Pas d'adaptation à votre rythme ni vos blocages"],
     "why.sol.label":"Ce que change un vrai professeur","why.sol.title":"Un humain qui écoute, corrige et vous fait parler.",
     "why.sol.items":["Il corrige pendant la conversation, sans la couper","Il répond à vos questions sur le moment","Il adapte le cours à ce que vous avez du mal à dire","Il vous force à parler — c'est comme ça qu'on apprend"],
     "how.eyebrow":"COMMENT ÇA MARCHE","how.h2":"De la première leçon à la première vraie conversation.",
     "how.steps":[["01","Testez votre niveau","Un test de 5 minutes pour vous situer sur l'échelle CECRL. Gratuit, immédiat.","Gratuit · 5 min"],["02","Choisissez un professeur","Parcourez les profils adaptés à votre niveau. Spécialités, disponibilités.","38 professeurs"],["03","Réservez un créneau","Paiement sécurisé Stripe — votre argent est protégé.","Annulation 24h avant"],["04","Votre premier cours","Scénario réel, correction en temps réel, votre rythme. Suivi après chaque session.","Visio 1-on-1"]],
-    "trial.tag":"SANS ENGAGEMENT","trial.h":"15 minutes gratuites avec un vrai professeur.","trial.p":"Pas de carte bancaire. Pas d'inscription forcée. Juste un premier échange pour voir si MFT est fait pour vous.","trial.btn":"Réserver ma séance gratuite →","trial.c1":"Sans carte bancaire","trial.c2":"Annulable à tout moment","trial.c3":"Tous niveaux",
+    "trial.tag":"SANS ENGAGEMENT","trial.h":"15 minutes gratuites avec un vrai professeur.","trial.p":"Pas de carte bancaire. Pas d'inscription forcée. Juste un premier échange pour voir si MFT est fait pour vous.","trial.btn":"Réserver ma séance gratuite →","trial.c1":"Sans carte bancaire","trial.c2":"Annulation jusqu'à 24h avant","trial.c3":"Tous niveaux",
     "testi.eyebrow":"TÉMOIGNAGES","testi.h2":"Ce que disent nos étudiants",
     "testi.items":[["Après 6 mois sur Duolingo je comprenais mais ne pouvais pas parler. Après 8 cours avec Sophie j'ai tenu ma première vraie conversation avec ma belle-famille française.","Lena K.","Allemagne · A2 → B1"],["Le prof ne s'arrête pas à chaque faute. Il corrige en continuant la conversation. On progresse sans s'en rendre compte.","Marco S.","Italie · B1 → B2"],["J'ai passé mon DELF B2 du premier coup. Thomas m'a fait travailler exactement les situations de l'examen.","Ji-Young P.","Corée du Sud · DELF B2"]],
     "teachers.eyebrow":"NOS PROFESSEURS","teachers.h2":"Certifiés. Vérifiés. Humains.","teachers.sub":"Chaque professeur est titulaire d'une certification FLE et a passé notre entretien pédagogique. Votre paiement leur est versé directement.","teachers.cta":"Voir tous les professeurs →",
     "pricing.eyebrow":"TARIFS","pricing.h2":"Simple. Transparent. Sans surprise.","pricing.sub":"Aucun abonnement. Aucun crédit qui expire. Économisez en achetant plus de cours.",
-    "p1.label":"À l'unité","p1.desc":"Pour tester sans engagement.","p1.cta":"Commencer →",
-    "p2.label":"Pack 5 cours","p2.desc":"5 cours à tarif réduit. Assez pour sentir la différence.","p2.cta":"Choisir ce pack →","p2.badge":"Plus populaire","p2.save":"Économisez 15 €",
-    "p3.label":"Pack 10 cours","p3.desc":"Sérieux ? 10 cours suffisent pour franchir un niveau CECRL.","p3.cta":"Choisir ce pack →","p3.save":"Économisez 50 €",
-    "pf1":"Tous les professeurs","pf2":"Annulation 24h avant","pf3":"Paiement sécurisé","pf4":"Tout du pack à l'unité","pf5":"Suivi de progression","pf6":"Priorité de réservation","pf7":"Rapport mensuel","pf8":"Suivi personnalisé",
-    "cf.h":"Votre premier cours, cette semaine.","cf.p":"Réservez une séance découverte de 15 minutes. Sans carte bancaire, sans engagement.","cf.btn":"Réserver ma séance gratuite →","cf.teach":"Vous êtes professeur ?","cf.teachlink":"Rejoignez notre équipe →",
+    "p1.label":"À l'unité","p1.desc":"Un cours, un prof. Pour voir si ça vous convient.","p1.cta":"Commencer →",
+    "p2.label":"Pack 5 cours","p2.desc":"Cinq cours à tarif réduit — la plupart de nos étudiants sentent une vraie différence dès le 3ème.","p2.cta":"Choisir ce pack →","p2.badge":"Plus populaire","p2.save":"Économisez 15 €",
+    "p3.label":"Pack 10 cours","p3.desc":"Dix cours suffisent généralement pour franchir un niveau CECRL. Le choix de ceux qui veulent vraiment progresser.","p3.cta":"Choisir ce pack →","p3.save":"Économisez 50 €",
+    "pf1":"Tous les professeurs","pf2":"Annulation jusqu'à 24h avant","pf3":"Paiement sécurisé","pf4":"Tout du pack à l'unité","pf5":"Suivi de progression","pf6":"Priorité de réservation","pf7":"Rapport mensuel","pf8":"Suivi personnalisé",
+    "cf.h":"Votre première vraie conversation en français commence ici.","cf.p":"15 minutes, gratuites, sans carte bancaire. Rencontrez votre professeur et parlez dès la première minute.","cf.btn":"Réserver ma séance gratuite →","cf.teach":"Vous êtes professeur ?","cf.teachlink":"Rejoignez notre équipe →",
     "footer.tagline":"La plateforme qui vous fait passer de la compréhension à la parole.","footer.col1":"Étudiants","footer.find":"Trouver un professeur","footer.test":"Tester mon niveau","footer.pricing":"Tarifs","footer.col2":"Professeurs","footer.join":"Rejoindre MFT","footer.commission":"Commission & conditions","footer.col3":"Légal","footer.mentions":"Mentions légales","footer.cgu":"CGU","footer.privacy":"Confidentialité","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. Tous droits réservés.","footer.made":"Made in France",
     "modal.student":"Étudiant","modal.teacher":"Professeur","modal.name":"Nom complet","modal.level":"Votre niveau","modal.password":"Mot de passe","modal.create":"Créer mon compte →","modal.or":"ou","modal.google":"Continuer avec Google","modal.cert":"Certification FLE","modal.rate":"Tarif horaire (€)","modal.createteacher":"Créer mon profil professeur →",
     "modal.levels":["Je veux passer le test de niveau","Pré-A1 — aucune notion","A1 — quelques mots","A2 — bases acquises","B1 — intermédiaire","B2 — confirmé","C1 — avancé"],
@@ -578,18 +578,18 @@ const T={
   },
   ko:{
     "nav.why":"MFT 소개","nav.how":"이용 방법","nav.pricing":"요금","nav.teach":"강사 신청","nav.login":"로그인","nav.cta":"무료 수업 예약 →",
-    "hero.tag":"무료 15분 체험 수업","hero.h1":"프랑스어를 배우세요.<br><span class='accent'>진짜로 말하세요.</span>","hero.sub":"인증된 프랑스어 강사와 1대1 화상 수업. 진짜 대화, 진짜 교정, 진짜 진전.","hero.cta1":"무료 수업 예약하기 →","hero.cta2":"이용 방법 보기","hero.p1":"신용카드 불필요","hero.p2":"모든 수준","hero.p3":"언제든 취소",
+    "hero.tag":"무료 15분 체험 수업","hero.h1":"앱은 그만.<br><span class='accent'>이제 진짜 프랑스어를 말하세요.</span>","hero.sub":"인증된 프랑스어 강사와 함께하는 1대1 수업. 알고리즘도, 스크립트도 없이 — 첫 수업부터 진짜 프랑스어로.","hero.cta1":"무료 수업 예약하기 →","hero.cta2":"이용 방법 보기","hero.p1":"신용카드 불필요","hero.p2":"모든 수준","hero.p3":"약정 없음",
     "hb.label":"무료 체험 수업","hb.heading":"15분.<br><span>무료로.</span>","hb.body":"인증된 강사를 선택하고 시간을 고르세요. 신용카드 없이, 약정 없이.","hb.c1":"FLE 인증 강사","hb.c2":"실시간 교정","hb.c3":"모든 수준 환영","hb.btn":"무료 수업 예약하기 →","hb.note":"38명의 인증 강사 · 이번 주 가능",
-    "stat1":"FLE 인증 강사","stat2":"지원 언어","stat3":"수업당 요금, 숨겨진 비용 없음","stat4":"무료 체험 수업, 카드 불필요",
+    "stat1":"FLE 인증 강사","stat2":"온라인 수업, 어디서나","stat3":"수업당 요금, 숨겨진 비용 없음","stat4":"무료 체험 수업, 카드 불필요",
     "strip":["무료 15분 체험 수업","FLE 인증 강사 38명","1대1 화상 수업","Pre-A1~C1 모든 수준","Stripe 안전 결제","24시간 전 취소 가능","약정 없음"],
-    "why.eyebrow":"문제점","why.h2":"이미 시도했지만 충분하지 않았습니다.","why.sub":"앱은 프랑스어를 인식하는 법을 가르쳐줍니다. 진짜 말하는 법은 진짜 선생님만 가르쳐줄 수 있습니다.",
+    "why.eyebrow":"문제점","why.h2":"앱을 써봤다면, 이제 진짜 선생님을 만나보세요.","why.sub":"듀오링고는 점수를 줍니다. 선생님은 목소리를 줍니다.",
     "why.prob.label":"앱이 부족한 이유","why.prob.title":"말하지 않고 배우는 것은 말하는 법을 가르쳐주지 않습니다.",
     "why.prob.items":["실제 표현 방식에 대한 교정이 없음","실시간으로 질문에 답해주는 사람이 없음","실제 프랑스 생활과 동떨어진 상황","개인 수준과 속도에 맞춘 조정 없음"],
     "why.sol.label":"진짜 선생님이 하는 것","why.sol.title":"듣고, 교정하고, 계속 말하게 만드는 사람.",
     "why.sol.items":["대화를 끊지 않고 그 안에서 교정","그 자리에서 즉시 질문에 답변","말하기 어려운 부분에 맞게 수업 조정","말하도록 유도 — 그것이 배우는 방법"],
     "how.eyebrow":"이용 방법","how.h2":"첫 수업부터 첫 번째 진짜 대화까지.",
     "how.steps":[["01","레벨 테스트","5분 테스트로 CEFR 레벨 확인. 무료, 즉시 결과.","무료 · 5분"],["02","강사 선택","수준에 맞는 강사 프로필 확인.","38명"],["03","시간 예약","Stripe 안전 결제 — 수업 종료까지 보호.","24시간 전 취소"],["04","첫 번째 수업","실제 상황, 실시간 교정, 나만의 속도.","1대1 화상"]],
-    "trial.tag":"약정 없음","trial.h":"진짜 선생님과 15분 무료 체험.","trial.p":"신용카드 불필요. 강제 가입 없음. MFT가 맞는지 확인하는 첫 대화입니다.","trial.btn":"무료 체험 예약하기 →","trial.c1":"신용카드 불필요","trial.c2":"언제든 취소","trial.c3":"모든 수준 환영",
+    "trial.tag":"약정 없음","trial.h":"진짜 선생님과 15분 무료 체험.","trial.p":"신용카드 불필요. 강제 가입 없음. MFT가 맞는지 확인하는 첫 대화입니다.","trial.btn":"무료 체험 예약하기 →","trial.c1":"신용카드 불필요","trial.c2":"24시간 전 취소 가능","trial.c3":"모든 수준 환영",
     "testi.eyebrow":"수강생 후기","testi.h2":"수강생들의 이야기",
     "testi.items":[["듀오링고 6개월 후 이해는 됐지만 말을 못 했어요. 소피와 8번 수업 후 프랑스인 시가족과 첫 대화를 나눴습니다.","Lena K.","독일 · A2 → B1"],["선생님이 대화를 이어가면서 교정해줘요. 자기도 모르게 실력이 늘어요.","Marco S.","이탈리아 · B1 → B2"],["DELF B2를 한 번에 통과했어요. 시험 상황을 정확히 연습시켜줬어요.","Ji-Young P.","한국 · DELF B2 합격"]],
     "teachers.eyebrow":"강사진","teachers.h2":"인증됨. 검증됨. 진짜.","teachers.sub":"모든 강사는 FLE 자격증을 보유하고 교육팀 면접을 통과했습니다.","teachers.cta":"모든 강사 보기 →",
@@ -597,7 +597,7 @@ const T={
     "p1.label":"단건 수업","p1.desc":"약정 없이 테스트.","p1.cta":"시작하기 →",
     "p2.label":"5회 패키지","p2.desc":"할인 요금으로 5회 수업.","p2.cta":"패키지 선택 →","p2.badge":"가장 인기","p2.save":"15 € 절약",
     "p3.label":"10회 패키지","p3.desc":"CEFR 레벨 하나를 올리기 충분합니다.","p3.cta":"패키지 선택 →","p3.save":"50 € 절약",
-    "pf1":"모든 강사","pf2":"24시간 전 취소","pf3":"안전 결제","pf4":"단건 수업 혜택 포함","pf5":"진도 추적","pf6":"우선 예약","pf7":"월간 학습 보고서","pf8":"맞춤 팔로업",
+    "pf1":"모든 강사","pf2":"24시간 전까지 취소 가능","pf3":"안전 결제","pf4":"단건 수업 혜택 포함","pf5":"진도 추적","pf6":"우선 예약","pf7":"월간 학습 보고서","pf8":"맞춤 팔로업",
     "cf.h":"이번 주, 첫 번째 수업.","cf.p":"15분 무료 체험 수업을 예약하세요. 신용카드 불필요, 약정 없음.","cf.btn":"무료 수업 예약하기 →","cf.teach":"강사이신가요?","cf.teachlink":"팀에 합류하기 →",
     "footer.tagline":"이해에서 말하기로 이어주는 플랫폼.","footer.col1":"수강생","footer.find":"강사 찾기","footer.test":"레벨 테스트","footer.pricing":"요금","footer.col2":"강사","footer.join":"MFT 참여","footer.commission":"수수료 & 조건","footer.col3":"법적 고지","footer.mentions":"법적 고지","footer.cgu":"이용약관","footer.privacy":"개인정보처리방침","footer.contact":"문의","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France",
     "modal.student":"수강생","modal.teacher":"강사","modal.name":"이름","modal.level":"프랑스어 수준","modal.password":"비밀번호","modal.create":"계정 만들기 →","modal.or":"또는","modal.google":"Google로 계속하기","modal.cert":"FLE 자격증","modal.rate":"시간당 요금 (€)","modal.createteacher":"강사 프로필 만들기 →",
@@ -606,18 +606,18 @@ const T={
   },
   zh:{
     "nav.why":"为什么选MFT","nav.how":"如何使用","nav.pricing":"价格","nav.teach":"成为教师","nav.login":"登录","nav.cta":"预约免费课 →",
-    "hero.tag":"免费15分钟体验课","hero.h1":"学法语。<br><span class='accent'>真正开口说。</span>","hero.sub":"与认证法语教师进行1对1视频课程。真实对话，真实纠正，真实进步。","hero.cta1":"预约免费体验课 →","hero.cta2":"了解课程流程","hero.p1":"无需信用卡","hero.p2":"所有级别","hero.p3":"随时可取消",
+    "hero.tag":"免费15分钟体验课","hero.h1":"别再刷题了。<br><span class='accent'>开口说真正的法语。</span>","hero.sub":"与认证法语教师一对一上课。没有算法，没有固定脚本——从第一分钟起就说真正的法语。","hero.cta1":"预约免费体验课 →","hero.cta2":"了解课程流程","hero.p1":"无需信用卡","hero.p2":"所有级别","hero.p3":"无任何承诺",
     "hb.label":"您的免费体验课","hb.heading":"15分钟。<br><span>免费。</span>","hb.body":"选择认证教师，选择时间。无需信用卡，无需承诺。","hb.c1":"FLE认证教师","hb.c2":"实时纠正","hb.c3":"所有级别均可","hb.btn":"预约免费体验课 →","hb.note":"38位认证教师 · 本周可约",
-    "stat1":"FLE认证教师","stat2":"支持语言","stat3":"每节课费用，无隐藏费用","stat4":"免费体验课，无需信用卡",
+    "stat1":"FLE认证教师","stat2":"线上授课，随时随地","stat3":"每节课费用，无隐藏费用","stat4":"免费体验课，无需信用卡",
     "strip":["免费15分钟体验课","38位认证FLE教师","1对1视频课程","Pre-A1到C1全级别","Stripe安全支付","提前24小时可取消","无任何承诺"],
-    "why.eyebrow":"问题所在","why.h2":"您已经尝试过了，但还不够。","why.sub":"应用程序教您识别法语。只有真正的老师才能教您开口说话。",
+    "why.eyebrow":"问题所在","why.h2":"试过了那些应用？现在试试真正的老师。","why.sub":"多邻国给您积分。老师给您开口的能力。",
     "why.prob.label":"应用程序为何不够","why.prob.title":"不开口学习，无法学会开口说话。",
     "why.prob.items":["没有针对您表达方式的纠正","没有人实时回答您的问题","脱离真实法国生活的人工情景","无法根据您的水平和节奏调整"],
     "why.sol.label":"真正的老师能做什么","why.sol.title":"倾听、纠正并让您持续开口的人。",
     "why.sol.items":["在对话中纠正，不打断对话","当场回答问题","根据您的难点调整课程","让您持续开口 — 这才是学习的方式"],
     "how.eyebrow":"如何使用","how.h2":"从第一堂课到第一次真正的对话。",
     "how.steps":[["01","水平测试","5分钟测试定位CEFR水平。免费，即时结果。","免费 · 5分钟"],["02","选择教师","浏览匹配您级别的教师档案。","38位教师"],["03","预约时间","Stripe安全支付 — 资金受到保护。","提前24小时取消"],["04","第一堂课","真实情景，实时纠正，按您的节奏。","1对1视频"]],
-    "trial.tag":"无任何承诺","trial.h":"与真正的老师免费体验15分钟。","trial.p":"无需信用卡。无强制注册。只是一次初次对话，看看MFT是否适合您。","trial.btn":"预约免费体验 →","trial.c1":"无需信用卡","trial.c2":"随时可取消","trial.c3":"所有级别",
+    "trial.tag":"无任何承诺","trial.h":"与真正的老师免费体验15分钟。","trial.p":"无需信用卡。无强制注册。只是一次初次对话，看看MFT是否适合您。","trial.btn":"预约免费体验 →","trial.c1":"无需信用卡","trial.c2":"提前24小时可取消","trial.c3":"所有级别",
     "testi.eyebrow":"学员评价","testi.h2":"学员们怎么说",
     "testi.items":[["在多邻国学了6个月，我能听懂但不会说。和Sophie上了8节课后，我和法国婆家进行了第一次真正的对话。","Lena K.","德国 · A2 → B1"],["老师在继续对话的同时纠正我。不知不觉中就进步了。","Marco S.","意大利 · B1 → B2"],["我一次性通过了DELF B2考试。Thomas让我练习了考试中的确切情景。","Ji-Young P.","韩国 · DELF B2"]],
     "teachers.eyebrow":"我们的教师","teachers.h2":"认证。审核。真实。","teachers.sub":"每位教师都持有FLE认证并通过了我们教学团队的面试。","teachers.cta":"查看所有教师 →",
@@ -625,7 +625,7 @@ const T={
     "p1.label":"单节课","p1.desc":"无承诺体验。","p1.cta":"立即开始 →",
     "p2.label":"5节课套餐","p2.desc":"优惠价5节课。足以感受到不同。","p2.cta":"选择此套餐 →","p2.badge":"最受欢迎","p2.save":"节省15 €",
     "p3.label":"10节课套餐","p3.desc":"足以提升一个CEFR级别。","p3.cta":"选择此套餐 →","p3.save":"节省50 €",
-    "pf1":"所有教师","pf2":"提前24小时取消","pf3":"安全支付","pf4":"包含单节课所有权益","pf5":"进度跟踪","pf6":"优先预约","pf7":"月度进度报告","pf8":"个性化跟进",
+    "pf1":"所有教师","pf2":"提前24小时可取消","pf3":"安全支付","pf4":"包含单节课所有权益","pf5":"进度跟踪","pf6":"优先预约","pf7":"月度进度报告","pf8":"个性化跟进",
     "cf.h":"您的第一节课，就在本周。","cf.p":"预约15分钟免费体验课。无需信用卡，无任何承诺。","cf.btn":"预约免费体验课 →","cf.teach":"您是教师吗？","cf.teachlink":"加入我们的团队 →",
     "footer.tagline":"让您从理解到开口表达的平台。","footer.col1":"学生","footer.find":"找教师","footer.test":"水平测试","footer.pricing":"价格","footer.col2":"教师","footer.join":"加入MFT","footer.commission":"佣金与条款","footer.col3":"法律","footer.mentions":"法律声明","footer.cgu":"使用条款","footer.privacy":"隐私政策","footer.contact":"联系我们","footer.copy":"© 2025 My French Teacher. 保留所有权利。","footer.made":"法国制造",
     "modal.student":"学生","modal.teacher":"教师","modal.name":"全名","modal.level":"您的法语水平","modal.password":"密码","modal.create":"创建我的账户 →","modal.or":"或","modal.google":"使用Google继续","modal.cert":"FLE认证","modal.rate":"每小时费率 (€)","modal.createteacher":"创建教师档案 →",
