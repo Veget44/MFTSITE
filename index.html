@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My French Teacher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0A0E1A;--navy2:#111827;
+  --cream:#FAF7F2;--cream2:#F2EDE4;--cream3:#E8E1D5;
+  --blue:#0030A0;--blue2:#1a47c0;--red:#CC1A2A;
+  --ink:#0F1218;--gray:#6B7280;--gray2:#9CA3AF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+[lang="ko"] body,[lang="ko"] .serif-text{font-family:'Noto Sans KR',sans-serif}
+[lang="zh"] body,[lang="zh"] .serif-text{font-family:'Noto Sans SC',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.nav-logo-text{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:#fff}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;color:rgba(255,255,255,0.45);transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:8px}
+
+/* LANG SWITCHER */
+.lang-switcher{display:flex;align-items:center;gap:0;background:rgba(255,255,255,0.07);border-radius:8px;padding:3px;border:1px solid rgba(255,255,255,0.08)}
+.lang-btn{padding:5px 10px;border-radius:5px;font-size:12px;font-weight:500;font-family:inherit;border:none;background:transparent;color:rgba(255,255,255,0.45);cursor:pointer;transition:all .15s;letter-spacing:.02em}
+.lang-btn.active{background:rgba(255,255,255,0.12);color:#fff}
+.lang-btn:hover:not(.active){color:rgba(255,255,255,0.75)}
+.nav-login{font-size:14px;color:rgba(255,255,255,0.5);cursor:pointer;padding:8px 14px;border-radius:8px;border:none;background:transparent;font-family:inherit;transition:color .2s}
+.nav-login:hover{color:#fff}
+.nav-cta{background:var(--blue);color:#fff;font-size:14px;font-weight:500;padding:9px 20px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--blue2)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:0 48px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:20%;left:55%;width:600px;height:600px;border-radius:50%;background:rgba(0,48,160,0.12);filter:blur(80px);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 0 80px;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:6px 14px 6px 8px;margin-bottom:28px}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.pill-text{font-size:12px;color:rgba(255,255,255,0.55);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,4.8vw,68px);color:#fff;line-height:1.08;letter-spacing:-0.02em;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,0.5)}
+.hero-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.75;max-width:420px;margin-bottom:40px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.btn-primary{background:var(--blue);color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:500;font-family:inherit;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.btn-primary:hover{background:var(--blue2)}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.15);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:400;font-family:inherit;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-outline:hover{border-color:rgba(255,255,255,0.35);color:#fff}
+.hero-trust{display:flex;align-items:center;gap:12px}
+.avatars{display:flex}
+.av{width:32px;height:32px;border-radius:50%;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;margin-right:-10px}
+.trust-text{font-size:13px;color:rgba(255,255,255,0.35);margin-left:20px}
+.trust-text strong{color:rgba(255,255,255,0.75);font-weight:500}
+
+/* HERO CARD */
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.hc-top{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hc-av{width:42px;height:42px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:#fff;flex-shrink:0}
+.hc-name{font-size:14px;font-weight:500;color:#fff}
+.hc-detail{font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px}
+.hc-status{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,0.35)}
+.status-dot{width:6px;height:6px;border-radius:50%;background:#4ade80}
+.chat-row{display:flex;flex-direction:column;gap:10px}
+.msg{padding:11px 15px;border-radius:11px;font-size:13.5px;line-height:1.55}
+.msg-s{background:rgba(0,48,160,0.35);color:rgba(255,255,255,0.8);border-radius:11px 11px 11px 3px;max-width:88%}
+.msg-t{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.8);border-radius:11px 11px 3px 11px;align-self:flex-end;max-width:88%;border:1px solid rgba(255,255,255,0.05)}
+.note{background:rgba(34,197,94,0.09);border:1px solid rgba(34,197,94,0.18);border-radius:10px;padding:10px 14px;display:flex;gap:10px}
+.note-badge{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4ade80;white-space:nowrap;padding-top:2px}
+.note-text{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.55}
+.note-text strong{color:#86efac}
+.hc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06)}
+.hc-next-label{font-size:12px;color:rgba(255,255,255,0.3)}
+.hc-next-val{font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);margin-top:2px}
+.hc-book{background:var(--blue);color:#fff;font-size:13px;font-weight:500;font-family:inherit;padding:9px 18px;border-radius:8px;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.hc-book:hover{background:var(--blue2)}
+
+/* STRIP */
+.strip{background:#fff;border-top:1px solid var(--cream3);border-bottom:1px solid var(--cream3);padding:18px 0;overflow:hidden;white-space:nowrap}
+.strip-track{display:inline-flex;gap:56px;animation:marquee 32s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.strip-item{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--gray)}
+
+/* SECTIONS */
+.section{padding:100px 48px}
+.wrap{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(30px,3.3vw,48px);color:var(--ink);line-height:1.1;letter-spacing:-0.02em;margin-bottom:16px}
+.sh em{font-style:italic}
+.sp{font-size:17px;font-weight:300;color:var(--gray);line-height:1.75;max-width:500px}
+
+/* PROBLEM/SOLUTION */
+.psol-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+.psol-card{border-radius:18px;padding:36px;display:flex;flex-direction:column;gap:20px}
+.psol-card.problem{background:var(--cream2);border:1px solid var(--cream3)}
+.psol-card.solution{background:var(--navy);border:1px solid rgba(255,255,255,0.06)}
+.psol-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.problem .psol-label{color:var(--gray2)}
+.solution .psol-label{color:rgba(255,255,255,0.25)}
+.psol-title{font-family:'Playfair Display',serif;font-size:22px;line-height:1.25}
+.problem .psol-title{color:var(--ink)}
+.solution .psol-title{color:#fff}
+.psol-items{display:flex;flex-direction:column;gap:14px}
+.psol-item{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.65;font-weight:300}
+.problem .psol-item{color:var(--gray)}
+.solution .psol-item{color:rgba(255,255,255,0.55)}
+.psol-icon{flex-shrink:0;margin-top:1px}
+
+/* TRIAL SECTION */
+.trial-section{background:var(--navy);text-align:center}
+.trial-checks{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:20px}
+.trial-check{font-size:13px;color:rgba(255,255,255,0.25);display:flex;align-items:center;gap:7px}
+.trial-check span.ok{color:#4ade80;font-size:15px}
+
+/* HOW */
+.how-section{background:var(--navy)}
+.how-steps{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:680px}
+.hs{display:flex;gap:28px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hs:last-child{border-bottom:none}
+.hs-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:rgba(255,255,255,0.07);line-height:1;flex-shrink:0;width:44px;letter-spacing:-0.03em}
+.hs-title{font-size:17px;font-weight:500;color:#fff;margin-bottom:7px}
+.hs-text{font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300}
+.hs-tag{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(100,140,255,0.8);background:rgba(0,48,160,0.2);padding:4px 10px;border-radius:6px}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.testi-card{background:var(--cream);border:1px solid var(--cream3);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.testi-stars{font-size:14px;color:var(--blue);letter-spacing:2px}
+.testi-quote{font-size:15px;color:var(--ink);line-height:1.7;font-weight:300;font-style:italic;font-family:'Playfair Display',serif;flex:1}
+.testi-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--cream3)}
+.testi-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:500;color:var(--ink)}
+.testi-detail{font-size:12px;color:var(--gray);margin-top:1px}
+
+/* TEACHERS MINI */
+.t-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.t-mini{background:#fff;border:1px solid var(--cream3);border-radius:13px;padding:20px;display:flex;gap:13px;align-items:center}
+.t-mini-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#fff;flex-shrink:0}
+.t-mini-name{font-size:14px;font-weight:500;color:var(--ink)}
+.t-mini-spec{font-size:12px;color:var(--gray);margin-top:2px;font-weight:300}
+.t-mini-rate{margin-left:auto;font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);white-space:nowrap}
+.t-mini-rate span{font-family:'Inter',sans-serif;font-size:11px;color:var(--gray2);font-weight:300}
+
+/* PRICING */
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;align-items:start}
+.p-card{border:1px solid var(--cream3);border-radius:18px;padding:32px;background:#fff;display:flex;flex-direction:column}
+.p-card.best{background:var(--navy);border-color:var(--navy);position:relative}
+.best-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.p-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-bottom:18px}
+.p-card.best .p-label{color:rgba(255,255,255,0.3)}
+.p-price{display:flex;align-items:baseline;gap:4px;margin-bottom:8px}
+.p-price strong{font-family:'Playfair Display',serif;font-size:50px;color:var(--ink);font-weight:700;line-height:1;letter-spacing:-0.03em}
+.p-card.best .p-price strong{color:#fff}
+.p-price span{font-size:15px;color:var(--gray2);font-weight:300}
+.p-card.best .p-price span{color:rgba(255,255,255,0.3)}
+.p-desc{font-size:14px;color:var(--gray);line-height:1.65;font-weight:300;margin-bottom:24px}
+.p-card.best .p-desc{color:rgba(255,255,255,0.4)}
+.p-div{height:1px;background:var(--cream3);margin-bottom:22px}
+.p-card.best .p-div{background:rgba(255,255,255,0.07)}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
+.p-feats li{display:flex;gap:10px;font-size:14px;color:var(--gray);font-weight:300}
+.p-card.best .p-feats li{color:rgba(255,255,255,0.55)}
+.p-check{color:#16a34a;flex-shrink:0}
+.p-card.best .p-check{color:#4ade80}
+.p-btn{width:100%;padding:13px;border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;border:1px solid var(--cream3);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s;margin-top:auto}
+.p-btn:hover{background:var(--cream)}
+.p-card.best .p-btn{background:#fff;color:var(--blue);border-color:transparent}
+
+/* CTA */
+.cta-section{background:var(--navy);text-align:center}
+.cta-inner{max-width:620px;margin:0 auto}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,52px);color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:18px}
+.cta-h em{font-style:italic}
+.cta-p{font-size:17px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:36px}
+.cta-trust{font-size:13px;color:rgba(255,255,255,0.25);margin-top:20px}
+.cta-trust a{color:rgba(255,255,255,0.45);text-decoration:underline;cursor:pointer}
+
+/* FOOTER */
+footer{background:rgba(5,7,14,1);padding:64px 48px 36px}
+.fw{max-width:1100px;margin:0 auto}
+.f-top{display:flex;justify-content:space-between;gap:48px;margin-bottom:48px;flex-wrap:wrap}
+.f-brand p{font-size:13px;color:rgba(255,255,255,0.25);line-height:1.7;font-weight:300;max-width:230px;margin-top:14px}
+.f-col h5{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:14px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-col a{font-size:13px;color:rgba(255,255,255,0.35);transition:color .2s;cursor:pointer}
+.f-col a:hover{color:rgba(255,255,255,0.7)}
+.f-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-bottom p{font-size:12px;color:rgba(255,255,255,0.15)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--cream);border-radius:22px;max-width:440px;width:100%;transform:translateY(20px) scale(.98);transition:transform .25s;overflow:hidden;position:relative}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.mhead{background:var(--navy);padding:30px 32px 24px}
+.mtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:#fff;margin-bottom:4px}
+.msub{font-size:13px;color:rgba(255,255,255,0.35);font-weight:300}
+.mclose{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.07);border:none;width:30px;height:30px;border-radius:50%;font-size:17px;color:rgba(255,255,255,0.5);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.mbody{padding:24px 32px 32px;display:flex;flex-direction:column;gap:14px}
+.ftabs{display:flex;background:var(--cream2);border-radius:9px;padding:4px;margin-bottom:4px}
+.ftab{flex:1;padding:8px;text-align:center;font-size:13px;font-family:inherit;font-weight:500;cursor:pointer;background:transparent;border:none;color:var(--gray);border-radius:6px;transition:all .2s}
+.ftab.active{background:#fff;color:var(--ink)}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fl{font-size:12px;font-weight:500;color:var(--ink);letter-spacing:.02em}
+.fi{padding:10px 13px;border-radius:9px;border:1px solid var(--cream3);background:#fff;font-size:14px;font-family:inherit;color:var(--ink);transition:border-color .2s;outline:none;width:100%}
+.fi:focus{border-color:var(--blue)}
+.bsub{width:100%;padding:12px;border-radius:9px;background:var(--blue);color:#fff;font-size:14px;font-weight:500;font-family:inherit;border:none;cursor:pointer;transition:background .2s;margin-top:2px}
+.bsub:hover{background:var(--blue2)}
+.for{text-align:center;font-size:12px;color:var(--gray2);position:relative;margin:2px 0}
+.for::before,.for::after{content:'';position:absolute;top:50%;height:1px;background:var(--cream3);width:44%}
+.for::before{left:0}.for::after{right:0}
+.bgoo{width:100%;padding:10px;border-radius:9px;border:1px solid var(--cream3);background:#fff;font-size:14px;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--ink);transition:border-color .2s}
+.bgoo:hover{border-color:var(--gray2)}
+
+@media(max-width:900px){
+  nav{padding:0 16px}
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:110px 0 60px}.hero-card{display:none}
+  .psol-grid,.testi-grid,.t-mini-grid,.p-grid{grid-template-columns:1fr}
+  .section{padding:64px 20px}
+  footer{padding:48px 20px 28px}
+  .hero{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg width="30" height="20" viewBox="0 0 30 20" fill="none" style="border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,0.5)">
+      <rect width="10" height="20" fill="#002395"/>
+      <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+      <rect x="20" width="10" height="20" fill="#ED2939"/>
+    </svg>
+    <span class="nav-logo-text">My French Teacher</span>
+  </div>
+  <div class="nav-links">
+    <a onclick="scroll2('why')" data-i18n="nav.why">Why MFT</a>
+    <a onclick="scroll2('how')" data-i18n="nav.how">How it works</a>
+    <a onclick="scroll2('pricing')" data-i18n="nav.pricing">Pricing</a>
+    <a onclick="openModal('teacher')" data-i18n="nav.teach">Teach</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <button class="nav-login" onclick="openModal('login')" data-i18n="nav.login">Sign in</button>
+    <button class="nav-cta" onclick="openModal('student')" data-i18n="nav.cta">Free 15-min class →</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill"><span class="pill-dot"></span><span class="pill-text" data-i18n="hero.pill">Free 15-min intro class</span></div>
+      <h1 data-i18n="hero.h1">From 'I understand'<br>to <em>'I speak.'</em></h1>
+      <p class="hero-sub" data-i18n="hero.sub">1-on-1 video lessons with certified French teachers. Start with a free 15-minute intro session — no credit card needed.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openModal('student')" data-i18n="hero.cta1">Book my free class →</button>
+        <button class="btn-outline" onclick="scroll2('how')" data-i18n="hero.cta2">How it works</button>
+      </div>
+      <div class="hero-trust">
+        <div class="avatars">
+          <div class="av" style="background:#0030A0">L</div>
+          <div class="av" style="background:#6D28D9">K</div>
+          <div class="av" style="background:#059669">M</div>
+          <div class="av" style="background:#DC2626">J</div>
+        </div>
+        <span class="trust-text" style="margin-left:20px" data-i18n="hero.trust">All levels welcome · <strong>No credit card required</strong></span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hc-top">
+        <div class="hc-av">S</div>
+        <div>
+          <div class="hc-name">Sophie M. — Certified FLE</div>
+          <div class="hc-detail">Paris · Beginner & A2 specialist</div>
+        </div>
+        <div class="hc-status"><span class="status-dot"></span> <span data-i18n="card.online">Online</span></div>
+      </div>
+      <div class="chat-row">
+        <div class="msg msg-s" data-i18n="card.msg1">Je suis allé au boulangerie hier — j'ai acheté un pain au chocolat 🥐</div>
+        <div class="note">
+          <span class="note-badge" data-i18n="card.badge">Teacher</span>
+          <span class="note-text" data-i18n="card.note">Almost! 'boulangerie' is feminine → <strong>à la boulangerie</strong>. The rest is perfect ✓</span>
+        </div>
+        <div class="msg msg-t" data-i18n="card.msg2">And was it good? I always cave for croissants on Sundays... What's your favourite? 😄</div>
+      </div>
+      <div class="hc-footer">
+        <div>
+          <div class="hc-next-label" data-i18n="card.next">Next available slot</div>
+          <div class="hc-next-val" data-i18n="card.slot">Tomorrow at 10:00</div>
+        </div>
+        <button class="hc-book" onclick="openModal('student')" data-i18n="card.book">Book — 30 €</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track" id="strip-track"></div>
+</div>
+
+<section class="section" id="why" style="background:#fff">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="why.eyebrow">The problem</p>
+    <h2 class="sh" data-i18n="why.h2">You've tried.<br><em>It wasn't enough.</em></h2>
+    <p class="sp" data-i18n="why.sub">Duolingo, YouTube, apps — you understand more. But when you have to speak, you freeze. Here's why.</p>
+    <div class="psol-grid">
+      <div class="psol-card problem">
+        <p class="psol-label" data-i18n="why.prob.label">Why other methods fail</p>
+        <p class="psol-title" data-i18n="why.prob.title">Learning without speaking doesn't teach you to speak.</p>
+        <div class="psol-items" id="prob-items"></div>
+      </div>
+      <div class="psol-card solution">
+        <p class="psol-label" data-i18n="why.sol.label">What a real teacher changes</p>
+        <p class="psol-title" data-i18n="why.sol.title">A human who listens, corrects, and keeps you talking.</p>
+        <div class="psol-items" id="sol-items"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section trial-section">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto;text-align:center">
+      <p class="eyebrow" style="color:rgba(255,255,255,0.3)" data-i18n="trial.eyebrow">No commitment</p>
+      <h2 class="sh" style="color:#fff;margin-bottom:18px" data-i18n="trial.h2">15 free minutes<br>with a real teacher.</h2>
+      <p style="font-size:17px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:36px" data-i18n="trial.sub">No credit card. No forced sign-up. Just a first conversation to see if you click with your teacher — and if MFT is right for you.</p>
+      <button class="btn-primary" style="font-size:16px;padding:15px 36px" onclick="openModal('student')" data-i18n="trial.cta">Book my free session →</button>
+      <div class="trial-checks">
+        <span class="trial-check"><span class="ok">✓</span> <span data-i18n="trial.c1">No credit card</span></span>
+        <span class="trial-check"><span class="ok">✓</span> <span data-i18n="trial.c2">Cancel anytime</span></span>
+        <span class="trial-check"><span class="ok">✓</span> <span data-i18n="trial.c3">All levels welcome</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how-section" id="how">
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(255,255,255,0.3)" data-i18n="how.eyebrow">Your journey</p>
+    <h2 class="sh" style="color:#fff" data-i18n="how.h2">From first lesson<br>to <em>first real conversation.</em></h2>
+    <div class="how-steps" id="how-steps"></div>
+    <div style="margin-top:44px">
+      <button class="btn-primary" onclick="openModal('student')" data-i18n="how.cta">Start now →</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff" id="testi">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="testi.eyebrow">Testimonials</p>
+    <h2 class="sh" data-i18n="testi.h2">What students <em>say</em></h2>
+    <div class="testi-grid" id="testi-grid"></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream2)" id="teachers">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="teachers.eyebrow">Our teachers</p>
+    <h2 class="sh" data-i18n="teachers.h2">Certified teachers,<br><em>vetted by our team.</em></h2>
+    <p class="sp" data-i18n="teachers.sub">Every teacher holds a FLE certification and was interviewed by our academic team. Your payment goes directly to them.</p>
+    <div class="t-mini-grid">
+      <div class="t-mini"><div class="t-mini-av" style="background:#0030A0">S</div><div><div class="t-mini-name">Sophie M.</div><div class="t-mini-spec">Beginners · Conversation · DELF — Paris</div></div><div class="t-mini-rate">30 €<span>/h</span></div></div>
+      <div class="t-mini"><div class="t-mini-av" style="background:#059669">T</div><div><div class="t-mini-name">Thomas B.</div><div class="t-mini-spec">Business French · B1→C1 — Lyon</div></div><div class="t-mini-rate">35 €<span>/h</span></div></div>
+      <div class="t-mini"><div class="t-mini-av" style="background:#7C3AED">A</div><div><div class="t-mini-name">Amandine R.</div><div class="t-mini-spec">Children · Pre-A1 — Bordeaux</div></div><div class="t-mini-rate">28 €<span>/h</span></div></div>
+    </div>
+    <div style="margin-top:28px"><button class="btn-primary" onclick="openModal('student')" data-i18n="teachers.cta">See all teachers →</button></div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="pricing.eyebrow">Pricing</p>
+    <h2 class="sh" data-i18n="pricing.h2">Simple &amp; <em>transparent</em></h2>
+    <p class="sp" data-i18n="pricing.sub">No subscription. No expiring credits. Pay only for the lessons you take.</p>
+    <div class="p-grid">
+      <div class="p-card">
+        <p class="p-label" data-i18n="pricing.p1.label">Per lesson</p>
+        <div class="p-price"><strong>30</strong><span>€ / h</span></div>
+        <p class="p-desc" data-i18n="pricing.p1.desc">Try it with no commitment. One lesson, one teacher.</p>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f1">Access to all teachers</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f2">Cancel 24h before</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f3">Secure Stripe payment</span></li>
+        </ul>
+        <button class="p-btn" onclick="openModal('student')" data-i18n="pricing.p1.cta">Get started →</button>
+      </div>
+      <div class="p-card best">
+        <span class="best-badge" data-i18n="pricing.popular">Most popular</span>
+        <p class="p-label" data-i18n="pricing.p2.label">10-hour pack</p>
+        <div class="p-price"><strong style="color:#fff">25</strong><span>€ / h</span></div>
+        <p class="p-desc" data-i18n="pricing.p2.desc">Save 50 €. Enough to gain a full CEFR level.</p>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f4">Everything in per-lesson</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f5">Monthly progress report</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f6">Priority booking</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f7">Personalised follow-up</span></li>
+        </ul>
+        <button class="p-btn" onclick="openModal('student')" data-i18n="pricing.p2.cta">Choose this pack →</button>
+      </div>
+      <div class="p-card">
+        <p class="p-label" data-i18n="pricing.p3.label">Enterprise</p>
+        <div class="p-price"><strong style="font-size:36px" data-i18n="pricing.p3.price">Custom</strong><span data-i18n="pricing.p3.per"> pricing</span></div>
+        <p class="p-desc" data-i18n="pricing.p3.desc">For teams and corporate French training programmes.</p>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f8">Centralised HR dashboard</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f9">Unified monthly invoicing</span></li>
+          <li><span class="p-check">✓</span><span data-i18n="pricing.f10">Per-employee reports</span></li>
+        </ul>
+        <button class="p-btn" onclick="openModal('student')" data-i18n="pricing.p3.cta">Contact us →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="wrap">
+    <div class="cta-inner">
+      <h2 class="cta-h" data-i18n="cta.h">15 free minutes.<br><em>This week.</em></h2>
+      <p class="cta-p" data-i18n="cta.p">Choose your teacher and book a free 15-minute intro session. No credit card, no commitment. You decide if you want to continue.</p>
+      <button class="btn-primary" style="font-size:16px;padding:15px 36px" onclick="openModal('student')" data-i18n="cta.btn">Book my free session →</button>
+      <p class="cta-trust"><span data-i18n="cta.teach">Are you a teacher?</span> <a onclick="openModal('teacher')" data-i18n="cta.teachlink">Join our teachers →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fw">
+    <div class="f-top">
+      <div class="f-brand">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="26" height="18" viewBox="0 0 26 18" fill="none" style="border-radius:2px">
+            <rect width="8.67" height="18" fill="#002395"/>
+            <rect x="8.67" width="8.67" height="18" fill="#FFFFFF"/>
+            <rect x="17.33" width="8.67" height="18" fill="#ED2939"/>
+          </svg>
+          <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#fff">My French Teacher</span>
+        </div>
+        <p data-i18n="footer.tagline">The platform that takes you from understanding to speaking.</p>
+      </div>
+      <div class="f-col">
+        <h5 data-i18n="footer.students">Students</h5>
+        <ul>
+          <li><a data-i18n="footer.findteacher">Find a teacher</a></li>
+          <li><a data-i18n="footer.leveltest">Level test</a></li>
+          <li><a onclick="scroll2('pricing')" data-i18n="footer.pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5 data-i18n="footer.teachers">Teachers</h5>
+        <ul>
+          <li><a onclick="openModal('teacher')" data-i18n="footer.join">Join MFT</a></li>
+          <li><a data-i18n="footer.commission">Commission & terms</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5 data-i18n="footer.legal">Legal</h5>
+        <ul>
+          <li><a data-i18n="footer.mentions">Legal notice</a></li>
+          <li><a data-i18n="footer.cgu">Terms of use</a></li>
+          <li><a data-i18n="footer.privacy">Privacy</a></li>
+          <li><a data-i18n="footer.contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p data-i18n="footer.copy">© 2025 My French Teacher. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" style="border-radius:2px;opacity:.3">
+          <rect width="6.67" height="14" fill="#002395"/>
+          <rect x="6.67" width="6.67" height="14" fill="#FFFFFF"/>
+          <rect x="13.33" width="6.67" height="14" fill="#ED2939"/>
+        </svg>
+        <span style="font-size:12px;color:rgba(255,255,255,0.15)" data-i18n="footer.made">Made in France</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal" onclick="closeOut(event)">
+  <div class="modal">
+    <div class="mhead">
+      <div class="mtitle" id="mtitle">Book my free class</div>
+      <div class="msub" id="msub">Create your account — it's free</div>
+      <button class="mclose" onclick="closeModal()">×</button>
+    </div>
+    <div class="mbody">
+      <div class="ftabs">
+        <button class="ftab active" onclick="swTab('student',this)" data-i18n="modal.student">Student</button>
+        <button class="ftab" onclick="swTab('teacher',this)" data-i18n="modal.teacher">Teacher</button>
+      </div>
+      <div id="fs" style="display:flex;flex-direction:column;gap:14px">
+        <div class="fg"><label class="fl" data-i18n="modal.name">Full name</label><input class="fi" type="text" placeholder="Marie Dupont"></div>
+        <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="marie@email.com"></div>
+        <div class="fg">
+          <label class="fl" data-i18n="modal.level">Your French level</label>
+          <select class="fi" style="cursor:pointer" id="level-select"></select>
+        </div>
+        <div class="fg"><label class="fl" data-i18n="modal.password">Password</label><input class="fi" type="password" placeholder="••••••••"></div>
+        <button class="bsub" data-i18n="modal.createstudent">Create my account →</button>
+        <div class="for" data-i18n="modal.or">or</div>
+        <button class="bgoo">
+          <svg width="16" height="16" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/></svg>
+          <span data-i18n="modal.google">Continue with Google</span>
+        </button>
+      </div>
+      <div id="ft" style="display:none;flex-direction:column;gap:14px">
+        <div class="fg"><label class="fl" data-i18n="modal.name">Full name</label><input class="fi" type="text" placeholder="Thomas Bernard"></div>
+        <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="thomas@email.com"></div>
+        <div class="fg"><label class="fl" data-i18n="modal.cert">FLE Certification</label><select class="fi" style="cursor:pointer"><option>Master FLE</option><option>Licence FLE</option><option>DAEFLE</option><option>Other</option></select></div>
+        <div class="fg"><label class="fl" data-i18n="modal.rate">Hourly rate (€)</label><input class="fi" type="number" placeholder="30" min="15" max="100"></div>
+        <div class="fg"><label class="fl" data-i18n="modal.password">Password</label><input class="fi" type="password" placeholder="••••••••"></div>
+        <button class="bsub" data-i18n="modal.createteacher">Create my teacher profile →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const T = {
+  en: {
+    "nav.why":"Why MFT","nav.how":"How it works","nav.pricing":"Pricing","nav.teach":"Teach","nav.login":"Sign in","nav.cta":"Free 15-min class →",
+    "hero.pill":"FREE 15-MIN INTRO CLASS","hero.h1":"From 'I understand'<br>to <em>'I speak.'</em>",
+    "hero.sub":"1-on-1 video lessons with certified French teachers. Start with a free 15-minute intro session — no credit card needed.",
+    "hero.cta1":"Book my free class →","hero.cta2":"How it works",
+    "hero.trust":"All levels welcome · <strong>No credit card required</strong>",
+    "card.online":"Online","card.msg1":"Je suis allé au boulangerie hier — j'ai acheté un pain au chocolat 🥐",
+    "card.badge":"Teacher","card.note":"Almost! 'boulangerie' is feminine → <strong>à la boulangerie</strong>. The rest is perfect ✓",
+    "card.msg2":"And was it good? I always cave for croissants on Sundays... What's your favourite? 😄",
+    "card.next":"Next available slot","card.slot":"Tomorrow at 10:00","card.book":"Book — 30 €",
+    "strip":["Free 15-min intro class","38 certified FLE teachers","1-on-1 video lessons","All levels — Pre-A1 to C1","Secure Stripe payment","Cancel 24h before","No commitment"],
+    "why.eyebrow":"The problem","why.h2":"You've tried.<br><em>It wasn't enough.</em>",
+    "why.sub":"Duolingo, YouTube, apps — you understand more. But when you have to speak, you freeze. Here's why.",
+    "why.prob.label":"Why other methods fail","why.prob.title":"Learning without speaking doesn't teach you to speak.",
+    "why.prob.items":["No correction on how you actually phrase things","No one to answer your questions in real time","Artificial situations far from real life in France","No adaptation to your level, pace, or specific blocks"],
+    "why.sol.label":"What a real teacher changes","why.sol.title":"A human who listens, corrects, and keeps you talking.",
+    "why.sol.items":["Corrects during the conversation — without stopping it","Answers your questions on the spot, not in a FAQ","Adapts the lesson to what you struggle to say","Forces you to speak — that's how you learn"],
+    "trial.eyebrow":"NO COMMITMENT","trial.h2":"15 free minutes<br>with a real teacher.","trial.sub":"No credit card. No forced sign-up. Just a first conversation to see if you click with your teacher — and if MFT is right for you.","trial.cta":"Book my free session →","trial.c1":"No credit card","trial.c2":"Cancel anytime","trial.c3":"All levels welcome",
+    "how.eyebrow":"YOUR JOURNEY","how.h2":"From first lesson<br>to <em>first real conversation.</em>","how.cta":"Start now →",
+    "how.steps":[["Take a level test","A quick 5-minute test to place you on the CEFR scale. Instant results, no sign-up needed.","Free · 5 min"],["Choose your teacher","Browse teacher profiles matched to your level. Specialities, availability, accent — no surprises.","38 teachers available"],["Book a slot","Pick a time that works. Secure Stripe payment — your money is protected until the lesson ends.","Cancel 24h before · No commitment"],["Your first video lesson","Real-life scenario, real-time correction, your pace. After the lesson, a recap of what to work on.","Real corrections · No scripts"]],
+    "testi.eyebrow":"Testimonials","testi.h2":"What students <em>say</em>",
+    "testi.items":[["After 6 months on Duolingo I understood but couldn't speak. After 8 lessons with Sophie I had my first real conversation with my French in-laws.","Lena K.","Germany · A2 → B1"],["What surprised me is that the teacher doesn't stop at every mistake. She corrects while keeping the conversation going. You improve without even noticing.","Marco S.","Italy · B1 → B2"],["I passed my DELF B2 on the first try. Thomas had me work on exactly the situations in the exam. Really effective.","Ji-Young P.","South Korea · DELF B2"]],
+    "teachers.eyebrow":"Our teachers","teachers.h2":"Certified teachers,<br><em>vetted by our team.</em>","teachers.sub":"Every teacher holds a FLE certification and was interviewed by our academic team. Your payment goes directly to them.","teachers.cta":"See all teachers →",
+    "pricing.eyebrow":"Pricing","pricing.h2":"Simple &amp; <em>transparent</em>","pricing.sub":"No subscription. No expiring credits. Pay only for the lessons you take.",
+    "pricing.p1.label":"Per lesson","pricing.p1.desc":"Try it with no commitment. One lesson, one teacher.","pricing.p1.cta":"Get started →",
+    "pricing.p2.label":"10-hour pack","pricing.p2.desc":"Save 50 €. Enough to gain a full CEFR level.","pricing.p2.cta":"Choose this pack →","pricing.popular":"Most popular",
+    "pricing.p3.label":"Enterprise","pricing.p3.price":"Custom","pricing.p3.per":" pricing","pricing.p3.desc":"For teams and corporate French training programmes.","pricing.p3.cta":"Contact us →",
+    "pricing.f1":"Access to all teachers","pricing.f2":"Cancel 24h before","pricing.f3":"Secure Stripe payment","pricing.f4":"Everything in per-lesson","pricing.f5":"Monthly progress report","pricing.f6":"Priority booking","pricing.f7":"Personalised follow-up","pricing.f8":"Centralised HR dashboard","pricing.f9":"Unified monthly invoicing","pricing.f10":"Per-employee reports",
+    "cta.h":"15 free minutes.<br><em>This week.</em>","cta.p":"Choose your teacher and book a free 15-minute intro session. No credit card, no commitment.","cta.btn":"Book my free session →","cta.teach":"Are you a teacher?","cta.teachlink":"Join our teachers →",
+    "footer.tagline":"The platform that takes you from understanding to speaking.","footer.students":"Students","footer.findteacher":"Find a teacher","footer.leveltest":"Level test","footer.pricing":"Pricing","footer.teachers":"Teachers","footer.join":"Join MFT","footer.commission":"Commission & terms","footer.legal":"Legal","footer.mentions":"Legal notice","footer.cgu":"Terms of use","footer.privacy":"Privacy","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France",
+    "modal.student":"Student","modal.teacher":"Teacher","modal.name":"Full name","modal.level":"Your French level","modal.password":"Password","modal.createstudent":"Create my account →","modal.or":"or","modal.google":"Continue with Google","modal.cert":"FLE Certification","modal.rate":"Hourly rate (€)","modal.createteacher":"Create my teacher profile →",
+    "modal.levels":["I want to take the level test","Pre-A1 — no French at all","A1 — a few words","A2 — basics","B1 — intermediate","B2 — upper-intermediate","C1 — advanced"],
+    "modal.title.student":"Book my free class","modal.sub.student":"Create your account — it's free","modal.title.teacher":"Teach on MFT","modal.sub.teacher":"Join our certified teachers"
+  },
+  fr: {
+    "nav.why":"Pourquoi MFT","nav.how":"Comment ça marche","nav.pricing":"Tarifs","nav.teach":"Enseigner","nav.login":"Se connecter","nav.cta":"Séance gratuite 15 min →",
+    "hero.pill":"SÉANCE DÉCOUVERTE GRATUITE 15 MIN","hero.h1":"De « je comprends »<br>à <em>« je parle ».</em>",
+    "hero.sub":"Des cours en visio 1-on-1 avec des professeurs certifiés FLE. Commencez par une séance découverte gratuite de 15 minutes — sans carte bancaire.",
+    "hero.cta1":"Réserver ma séance gratuite →","hero.cta2":"Comment ça marche",
+    "hero.trust":"Tous niveaux acceptés · <strong>Sans carte bancaire</strong>",
+    "card.online":"En ligne","card.msg1":"Je suis allé au boulangerie hier — j'ai acheté un pain au chocolat 🥐",
+    "card.badge":"Prof","card.note":"Presque ! « boulangerie » est féminin → <strong>à la boulangerie</strong>. Le reste est parfait ✓",
+    "card.msg2":"Et il était bon ? Moi je craque toujours pour les croissants le dimanche... Vous préférez quoi ? 😄",
+    "card.next":"Prochain créneau disponible","card.slot":"Demain à 10h00","card.book":"Réserver — 30 €",
+    "strip":["Séance découverte 15 min gratuite","38 professeurs certifiés FLE","Cours en visio 1-on-1","Tous niveaux — Pré-A1 à C1","Paiement sécurisé Stripe","Annulation 24h avant","Sans engagement"],
+    "why.eyebrow":"Le problème","why.h2":"Vous avez déjà essayé.<br><em>Ça n'a pas suffi.</em>",
+    "why.sub":"Duolingo, YouTube, applications — vous comprenez mieux. Mais dès que vous devez parler, vous bloquez.",
+    "why.prob.label":"Pourquoi les autres méthodes bloquent","why.prob.title":"Apprendre sans parler ne vous apprend pas à parler.",
+    "why.prob.items":["Aucune correction sur votre façon de formuler les choses","Personne pour répondre à vos questions en temps réel","Des situations artificielles, loin de la vraie vie en France","Pas d'adaptation à votre niveau, votre rythme, vos blocages"],
+    "why.sol.label":"Ce que change un vrai professeur","why.sol.title":"Un humain qui vous écoute, vous corrige, vous relance.",
+    "why.sol.items":["Il corrige pendant la conversation — sans la couper","Il répond à vos questions sur le moment","Il adapte le cours à ce que vous avez du mal à dire","Il vous force à parler — c'est comme ça qu'on apprend"],
+    "trial.eyebrow":"SANS ENGAGEMENT","trial.h2":"15 minutes gratuites<br>avec un vrai professeur.","trial.sub":"Pas de carte bancaire. Pas d'inscription forcée. Juste un premier échange pour voir si vous vous entendez avec votre prof.","trial.cta":"Réserver ma séance gratuite →","trial.c1":"Sans carte bancaire","trial.c2":"Annulable à tout moment","trial.c3":"Tous niveaux acceptés",
+    "how.eyebrow":"VOTRE PARCOURS","how.h2":"De la première leçon<br>à la <em>première vraie conversation.</em>","how.cta":"Commencer maintenant →",
+    "how.steps":[["Testez votre niveau","Un test rapide de 5 minutes pour vous situer sur l'échelle CECRL. Résultats immédiats.","Gratuit · 5 min"],["Choisissez votre professeur","Profils détaillés, spécialités, disponibilités en temps réel. Pas de surprise.","38 profs disponibles"],["Réservez un créneau","Paiement sécurisé Stripe — votre argent est protégé jusqu'à la fin du cours.","Annulation 24h avant · Sans engagement"],["Votre premier cours en visio","Scénario de la vraie vie, correction en temps réel, rythme adapté à vous.","Corrections en temps réel · Sans script"]],
+    "testi.eyebrow":"Témoignages","testi.h2":"Ce qu'ils en <em>disent</em>",
+    "testi.items":[["Après 6 mois sur Duolingo je comprenais mais ne pouvais pas parler. Après 8 cours avec Sophie j'ai tenu ma première vraie conversation avec ma belle-famille française.","Lena K.","Allemagne · A2 → B1"],["Ce qui m'a surpris c'est que le prof ne s'arrête pas à chaque faute. Il corrige en continuant la conversation. On progresse sans s'en rendre compte.","Marco S.","Italie · B1 → B2"],["J'ai passé mon DELF B2 du premier coup. Thomas m'a fait travailler exactement les situations de l'examen.","Ji-Young P.","Corée du Sud · DELF B2"]],
+    "teachers.eyebrow":"Nos professeurs","teachers.h2":"38 profs certifiés,<br><em>vérifiés par notre équipe.</em>","teachers.sub":"Chaque professeur est titulaire d'une certification FLE et a été interviewé par notre équipe pédagogique. Votre paiement leur est versé directement.","teachers.cta":"Voir tous les professeurs →",
+    "pricing.eyebrow":"Tarifs","pricing.h2":"Simple &amp; <em>transparent</em>","pricing.sub":"Aucun abonnement. Aucun crédit qui expire. Payez uniquement les cours que vous prenez.",
+    "pricing.p1.label":"À l'unité","pricing.p1.desc":"Pour tester sans engagement. Un cours, un prof.","pricing.p1.cta":"Commencer →",
+    "pricing.p2.label":"Pack 10 heures","pricing.p2.desc":"50 € d'économie. Assez pour franchir un niveau CECRL.","pricing.p2.cta":"Choisir ce pack →","pricing.popular":"Plus populaire",
+    "pricing.p3.label":"Entreprise","pricing.p3.price":"Sur","pricing.p3.per":" devis","pricing.p3.desc":"Pour les équipes et programmes de formation professionnelle en français.","pricing.p3.cta":"Nous contacter →",
+    "pricing.f1":"Accès à tous les professeurs","pricing.f2":"Annulation 24h avant","pricing.f3":"Paiement sécurisé Stripe","pricing.f4":"Tout du pack à l'unité","pricing.f5":"Rapport de progression mensuel","pricing.f6":"Priorité de réservation","pricing.f7":"Suivi personnalisé","pricing.f8":"Dashboard RH centralisé","pricing.f9":"Facturation mensuelle unifiée","pricing.f10":"Rapport par employé",
+    "cta.h":"15 minutes gratuites.<br><em>Cette semaine.</em>","cta.p":"Choisissez votre prof et réservez une séance découverte de 15 minutes. Sans carte bancaire, sans engagement.","cta.btn":"Réserver ma séance gratuite →","cta.teach":"Vous êtes professeur ?","cta.teachlink":"Rejoignez nos profs →",
+    "footer.tagline":"La plateforme qui vous fait passer de la compréhension à la parole.","footer.students":"Étudiants","footer.findteacher":"Trouver un professeur","footer.leveltest":"Tester mon niveau","footer.pricing":"Tarifs","footer.teachers":"Professeurs","footer.join":"Rejoindre MFT","footer.commission":"Commission & conditions","footer.legal":"Légal","footer.mentions":"Mentions légales","footer.cgu":"CGU","footer.privacy":"Confidentialité","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. Tous droits réservés.","footer.made":"Made in France",
+    "modal.student":"Étudiant","modal.teacher":"Professeur","modal.name":"Nom complet","modal.level":"Votre niveau de français","modal.password":"Mot de passe","modal.createstudent":"Créer mon compte →","modal.or":"ou","modal.google":"Continuer avec Google","modal.cert":"Certification FLE","modal.rate":"Tarif horaire (€)","modal.createteacher":"Créer mon profil professeur →",
+    "modal.levels":["Je veux passer le test de niveau","Pré-A1 — aucune notion","A1 — quelques mots","A2 — bases acquises","B1 — intermédiaire","B2 — confirmé","C1 — avancé"],
+    "modal.title.student":"Réserver ma séance gratuite","modal.sub.student":"Créez votre compte — c'est gratuit","modal.title.teacher":"Enseigner sur MFT","modal.sub.teacher":"Rejoignez nos professeurs certifiés"
+  },
+  ko: {
+    "nav.why":"MFT 소개","nav.how":"이용 방법","nav.pricing":"요금","nav.teach":"강사 신청","nav.login":"로그인","nav.cta":"무료 15분 체험 →",
+    "hero.pill":"무료 15분 체험 수업","hero.h1":"'이해한다'에서<br><em>'말한다'로.</em>",
+    "hero.sub":"자격증을 보유한 프랑스어 강사와 1:1 화상 수업. 신용카드 없이 무료 15분 체험 수업으로 시작하세요.",
+    "hero.cta1":"무료 수업 예약하기 →","hero.cta2":"이용 방법 보기",
+    "hero.trust":"모든 수준 가능 · <strong>신용카드 불필요</strong>",
+    "card.online":"온라인","card.msg1":"Je suis allé au boulangerie hier — j'ai acheté un pain au chocolat 🥐",
+    "card.badge":"선생님","card.note":"거의 완벽해요! 'boulangerie'는 여성명사예요 → <strong>à la boulangerie</strong>. 나머지는 완벽합니다 ✓",
+    "card.msg2":"맛있었나요? 저는 일요일에 크루아상을 항상 먹어요... 어떤 빵을 좋아하세요? 😄",
+    "card.next":"다음 가능한 시간","card.slot":"내일 오전 10시","card.book":"예약하기 — 30 €",
+    "strip":["무료 15분 체험 수업","인증된 FLE 강사 38명","1:1 화상 수업","모든 수준 — Pre-A1 ~ C1","Stripe 안전 결제","24시간 전 취소 가능","약정 없음"],
+    "why.eyebrow":"문제점","why.h2":"이미 시도해 봤지만<br><em>충분하지 않았습니다.</em>",
+    "why.sub":"듀오링고, 유튜브, 앱 — 이해는 늘었지만 막상 말하려면 막힙니다. 그 이유가 있습니다.",
+    "why.prob.label":"다른 방법이 실패하는 이유","why.prob.title":"말하지 않고 배우는 것은 말하는 법을 가르쳐주지 않습니다.",
+    "why.prob.items":["실제 표현 방식에 대한 교정이 없음","실시간으로 질문에 답해주는 사람이 없음","실제 프랑스 생활과 동떨어진 인위적인 상황","개인 수준, 속도, 막히는 부분에 맞춘 조정 없음"],
+    "why.sol.label":"진짜 선생님이 만드는 차이","why.sol.title":"듣고, 교정하고, 계속 말하게 만드는 사람.",
+    "why.sol.items":["대화를 끊지 않고 그 안에서 교정","FAQ가 아닌 그 자리에서 즉시 답변","말하기 어려운 부분에 맞게 수업 조정","말하도록 유도 — 그것이 배우는 방법"],
+    "trial.eyebrow":"약정 없음","trial.h2":"진짜 선생님과<br>15분 무료 체험.",
+    "trial.sub":"신용카드 불필요. 강제 가입 없음. 선생님과 잘 맞는지 확인하는 첫 대화입니다.","trial.cta":"무료 체험 예약하기 →","trial.c1":"신용카드 불필요","trial.c2":"언제든 취소 가능","trial.c3":"모든 수준 환영",
+    "how.eyebrow":"학습 여정","how.h2":"첫 수업부터<br><em>첫 번째 진짜 대화까지.</em>","how.cta":"지금 시작하기 →",
+    "how.steps":[["레벨 테스트","5분 테스트로 CEFR 레벨을 확인하세요. 즉시 결과, 가입 불필요.","무료 · 5분"],["선생님 선택","레벨에 맞는 선생님 프로필을 확인하세요. 전문 분야, 가능 시간, 발음 — 모두 투명하게.","38명의 강사"],["시간 예약","원하는 시간을 선택하세요. Stripe 안전 결제로 수업 종료까지 보호됩니다.","24시간 전 취소 · 약정 없음"],["첫 번째 화상 수업","실제 상황, 실시간 교정, 나만의 속도. 수업 후 복습 자료 제공.","실시간 교정 · 스크립트 없음"]],
+    "testi.eyebrow":"수강생 후기","testi.h2":"수강생들의 <em>이야기</em>",
+    "testi.items":[["듀오링고 6개월 후 이해는 됐지만 말을 못 했어요. 소피와 8번 수업 후 프랑스인 시가족과 첫 대화를 나눴습니다.","Lena K.","독일 · A2 → B1"],["선생님이 매번 실수에서 멈추지 않는다는 게 놀라웠어요. 대화를 이어가면서 교정해줘요. 자기도 모르게 실력이 늘어요.","Marco S.","이탈리아 · B1 → B2"],["DELF B2를 한 번에 통과했어요. 토마스 선생님이 시험에 나오는 상황을 정확히 연습시켜줬어요.","Ji-Young P.","한국 · DELF B2 합격"]],
+    "teachers.eyebrow":"강사진","teachers.h2":"인증된 강사,<br><em>검증된 팀.</em>","teachers.sub":"모든 강사는 FLE 자격증을 보유하고 교육팀의 면접을 통과했습니다. 결제금은 강사에게 직접 전달됩니다.","teachers.cta":"모든 강사 보기 →",
+    "pricing.eyebrow":"요금","pricing.h2":"간단하고 <em>투명한</em> 요금","pricing.sub":"구독 없음. 만료되는 크레딧 없음. 수업한 만큼만 결제하세요.",
+    "pricing.p1.label":"단건 수업","pricing.p1.desc":"약정 없이 테스트. 수업 하나, 선생님 하나.","pricing.p1.cta":"시작하기 →",
+    "pricing.p2.label":"10시간 패키지","pricing.p2.desc":"50 € 절약. CEFR 한 레벨 올리기에 충분합니다.","pricing.p2.cta":"패키지 선택 →","pricing.popular":"가장 인기",
+    "pricing.p3.label":"기업","pricing.p3.price":"맞춤","pricing.p3.per":" 견적","pricing.p3.desc":"팀 및 기업 프랑스어 교육 프로그램.","pricing.p3.cta":"문의하기 →",
+    "pricing.f1":"모든 강사 이용 가능","pricing.f2":"24시간 전 취소","pricing.f3":"Stripe 안전 결제","pricing.f4":"단건 수업 혜택 포함","pricing.f5":"월간 학습 보고서","pricing.f6":"우선 예약","pricing.f7":"맞춤 팔로업","pricing.f8":"HR 대시보드","pricing.f9":"월별 통합 청구","pricing.f10":"직원별 보고서",
+    "cta.h":"15분 무료 수업,<br><em>이번 주에.</em>","cta.p":"선생님을 선택하고 15분 무료 체험 수업을 예약하세요. 신용카드 불필요, 약정 없음.","cta.btn":"무료 체험 예약하기 →","cta.teach":"강사이신가요?","cta.teachlink":"강사로 참여하기 →",
+    "footer.tagline":"이해에서 말하기로 이어주는 플랫폼.","footer.students":"수강생","footer.findteacher":"강사 찾기","footer.leveltest":"레벨 테스트","footer.pricing":"요금","footer.teachers":"강사","footer.join":"MFT 참여","footer.commission":"수수료 & 조건","footer.legal":"법적 고지","footer.mentions":"법적 고지","footer.cgu":"이용약관","footer.privacy":"개인정보처리방침","footer.contact":"문의","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France",
+    "modal.student":"수강생","modal.teacher":"강사","modal.name":"이름","modal.level":"프랑스어 수준","modal.password":"비밀번호","modal.createstudent":"계정 만들기 →","modal.or":"또는","modal.google":"Google로 계속하기","modal.cert":"FLE 자격증","modal.rate":"시간당 요금 (€)","modal.createteacher":"강사 프로필 만들기 →",
+    "modal.levels":["레벨 테스트를 받고 싶어요","Pre-A1 — 전혀 모름","A1 — 기초 단어","A2 — 기초 완성","B1 — 중급","B2 — 중고급","C1 — 고급"],
+    "modal.title.student":"무료 수업 예약","modal.sub.student":"계정을 만드세요 — 무료입니다","modal.title.teacher":"MFT에서 가르치기","modal.sub.teacher":"인증된 강사팀에 합류하세요"
+  },
+  zh: {
+    "nav.why":"为什么选MFT","nav.how":"如何使用","nav.pricing":"价格","nav.teach":"成为教师","nav.login":"登录","nav.cta":"免费15分钟体验 →",
+    "hero.pill":"免费15分钟入门课","hero.h1":"从'我听懂了'<br>到<em>'我会说了'。</em>",
+    "hero.sub":"与认证法语教师进行1对1视频课程。无需信用卡，先体验15分钟免费入门课。",
+    "hero.cta1":"预约免费体验课 →","hero.cta2":"了解课程流程",
+    "hero.trust":"所有级别均可 · <strong>无需信用卡</strong>",
+    "card.online":"在线","card.msg1":"Je suis allé au boulangerie hier — j'ai acheté un pain au chocolat 🥐",
+    "card.badge":"老师","card.note":"几乎完美！'boulangerie'是阴性名词 → <strong>à la boulangerie</strong>。其余部分完全正确 ✓",
+    "card.msg2":"好吃吗？我每个周日都忍不住吃可颂... 您最喜欢哪种法式糕点？😄",
+    "card.next":"下一个可用时间","card.slot":"明天上午10:00","card.book":"预约 — 30 €",
+    "strip":["免费15分钟体验课","38位认证FLE教师","1对1视频课程","所有级别 — Pre-A1到C1","Stripe安全支付","提前24小时可取消","无任何承诺"],
+    "why.eyebrow":"问题所在","why.h2":"您已经尝试过了，<br><em>但还不够。</em>",
+    "why.sub":"多邻国、YouTube、各种App——您理解能力提升了，但真正开口时却卡住了。原因就在这里。",
+    "why.prob.label":"其他方法为何效果有限","why.prob.title":"不开口学习，无法学会开口说话。",
+    "why.prob.items":["没有针对您表达方式的纠正","没有人实时回答您的问题","脱离真实法国生活的人工情景","无法根据您的水平和节奏进行调整"],
+    "why.sol.label":"真正的老师能带来什么改变","why.sol.title":"一个倾听您、纠正您、让您持续开口的人。",
+    "why.sol.items":["在对话中纠正——不打断对话","当场回答问题，而不是查FAQ","根据您的难点调整课程内容","让您持续开口——这才是真正的学习方式"],
+    "trial.eyebrow":"无任何承诺","trial.h2":"与真正的老师<br>免费体验15分钟。",
+    "trial.sub":"无需信用卡，无强制注册。只是一次初次对话，看看您是否与老师合拍——以及MFT是否适合您。","trial.cta":"预约免费体验 →","trial.c1":"无需信用卡","trial.c2":"随时可取消","trial.c3":"所有级别均可",
+    "how.eyebrow":"您的学习之旅","how.h2":"从第一堂课<br>到<em>第一次真正的对话。</em>","how.cta":"立即开始 →",
+    "how.steps":[["测试您的水平","5分钟快速测试，在CEFR量表上定位您的水平。即时结果，无需注册.","免费 · 5分钟"],["选择您的老师","浏览匹配您级别的教师档案。专长、时间安排——一目了然。","38位教师可选"],["预约时间","选择适合您的时间。Stripe安全支付——课程结束前资金受到保护。","提前24小时可取消 · 无承诺"],["您的第一堂视频课","真实生活情景，实时纠正，按您的节奏进行。课后提供学习总结。","实时纠正 · 无固定脚本"]],
+    "testi.eyebrow":"学员评价","testi.h2":"学员们<em>怎么说</em>",
+    "testi.items":[["在多邻国学了6个月，我能听懂但不会说。和Sophie上了8节课后，我和法国婆家成功进行了第一次真正的对话。","Lena K.","德国 · A2 → B1"],["让我惊讶的是老师不会在每个错误处停下来。她在继续对话的同时纠正我。不知不觉中就进步了。","Marco S.","意大利 · B1 → B2"],["我一次性通过了DELF B2考试。Thomas让我练习了考试中出现的确切情景，非常有效。","Ji-Young P.","韩国 · DELF B2"]],
+    "teachers.eyebrow":"我们的教师","teachers.h2":"认证教师，<br><em>经过团队审核。</em>","teachers.sub":"每位教师都持有FLE认证，并经过我们教学团队的面试。您的付款直接转至教师账户。","teachers.cta":"查看所有教师 →",
+    "pricing.eyebrow":"价格","pricing.h2":"简单且<em>透明</em>","pricing.sub":"无订阅。无过期积分。只为您参加的课程付费。",
+    "pricing.p1.label":"单节课","pricing.p1.desc":"无承诺体验。一节课，一位老师。","pricing.p1.cta":"立即开始 →",
+    "pricing.p2.label":"10小时套餐","pricing.p2.desc":"节省50欧元。足以提升一个完整的CEFR级别。","pricing.p2.cta":"选择此套餐 →","pricing.popular":"最受欢迎",
+    "pricing.p3.label":"企业","pricing.p3.price":"定制","pricing.p3.per":"报价","pricing.p3.desc":"适合团队和企业法语培训项目。","pricing.p3.cta":"联系我们 →",
+    "pricing.f1":"使用所有教师","pricing.f2":"提前24小时取消","pricing.f3":"Stripe安全支付","pricing.f4":"包含单节课所有权益","pricing.f5":"月度学习报告","pricing.f6":"优先预约","pricing.f7":"个性化跟进","pricing.f8":"集中HR仪表板","pricing.f9":"统一月度发票","pricing.f10":"按员工出具报告",
+    "cta.h":"15分钟免费课，<br><em>就在本周。</em>","cta.p":"选择您的老师并预约15分钟免费体验课。无需信用卡，无任何承诺。","cta.btn":"预约免费体验 →","cta.teach":"您是教师吗？","cta.teachlink":"加入我们的教师团队 →",
+    "footer.tagline":"让您从理解到开口表达的平台。","footer.students":"学生","footer.findteacher":"找教师","footer.leveltest":"水平测试","footer.pricing":"价格","footer.teachers":"教师","footer.join":"加入MFT","footer.commission":"佣金与条款","footer.legal":"法律","footer.mentions":"法律声明","footer.cgu":"使用条款","footer.privacy":"隐私政策","footer.contact":"联系我们","footer.copy":"© 2025 My French Teacher. 保留所有权利。","footer.made":"法国制造",
+    "modal.student":"学生","modal.teacher":"教师","modal.name":"全名","modal.level":"您的法语水平","modal.password":"密码","modal.createstudent":"创建我的账户 →","modal.or":"或","modal.google":"使用Google继续","modal.cert":"FLE认证","modal.rate":"每小时费率 (€)","modal.createteacher":"创建教师档案 →",
+    "modal.levels":["我想参加水平测试","Pre-A1 — 完全不会","A1 — 会几个单词","A2 — 基础已打好","B1 — 中级","B2 — 中高级","C1 — 高级"],
+    "modal.title.student":"预约免费体验课","modal.sub.student":"创建账户——免费","modal.title.teacher":"在MFT任教","modal.sub.teacher":"加入我们的认证教师团队"
+  }
+};
+
+let lang = 'en';
+
+function t(key){ return (T[lang]&&T[lang][key]) || T.en[key] || key; }
+
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.textContent.trim()==={en:'EN',fr:'FR',ko:'한국어',zh:'中文'}[l]));
+  // font swap
+  const isKo = l==='ko', isZh = l==='zh';
+  document.body.style.fontFamily = isKo ? "'Noto Sans KR',sans-serif" : isZh ? "'Noto Sans SC',sans-serif" : "'Inter',sans-serif";
+  renderAll();
+  localStorage.setItem('mft_lang', l);
+}
+
+function renderAll(){
+  // i18n static keys
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    const val = t(key);
+    if(val) el.innerHTML = val;
+  });
+  // strip
+  const items = t('strip');
+  if(Array.isArray(items)){
+    const double = [...items,...items];
+    document.getElementById('strip-track').innerHTML = double.map(s=>`<span class="strip-item">✦ ${s}</span>`).join('');
+  }
+  // prob items
+  const pi = t('why.prob.items');
+  if(Array.isArray(pi)){
+    document.getElementById('prob-items').innerHTML = pi.map(s=>`<div class="psol-item"><span class="psol-icon">✗</span><span>${s}</span></div>`).join('');
+  }
+  const si = t('why.sol.items');
+  if(Array.isArray(si)){
+    document.getElementById('sol-items').innerHTML = si.map(s=>`<div class="psol-item"><span class="psol-icon">✓</span><span>${s}</span></div>`).join('');
+  }
+  // how steps
+  const hs = t('how.steps');
+  if(Array.isArray(hs)){
+    document.getElementById('how-steps').innerHTML = hs.map((s,i)=>`
+      <div class="hs">
+        <span class="hs-num">0${i+1}</span>
+        <div><div class="hs-title">${s[0]}</div><div class="hs-text">${s[1]}</div><span class="hs-tag">${s[2]}</span></div>
+      </div>`).join('');
+  }
+  // testimonials
+  const ti = t('testi.items');
+  if(Array.isArray(ti)){
+    const colors=['#0030A0','#059669','#DC2626'];
+    const initials=['L','M','J'];
+    document.getElementById('testi-grid').innerHTML = ti.map((s,i)=>`
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"${s[0]}"</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:${colors[i]}">${initials[i]}</div>
+          <div><div class="testi-name">${s[1]}</div><div class="testi-detail">${s[2]}</div></div>
+        </div>
+      </div>`).join('');
+  }
+  // level select
+  const lvls = t('modal.levels');
+  const sel = document.getElementById('level-select');
+  if(sel && Array.isArray(lvls)) sel.innerHTML = lvls.map(l=>`<option>${l}</option>`).join('');
+}
+
+function scroll2(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function openModal(type){
+  document.getElementById('modal').classList.add('open');
+  const isT = type==='teacher';
+  document.querySelectorAll('.ftab')[isT?1:0].click();
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function closeOut(e){if(e.target.id==='modal')closeModal()}
+function swTab(type,btn){
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const fs=document.getElementById('fs'),ft=document.getElementById('ft');
+  fs.style.display=type==='student'?'flex':'none';
+  ft.style.display=type==='teacher'?'flex':'none';
+  document.getElementById('mtitle').innerHTML=t(type==='student'?'modal.title.student':'modal.title.teacher');
+  document.getElementById('msub').innerHTML=t(type==='student'?'modal.sub.student':'modal.sub.teacher');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+// init
+const saved = localStorage.getItem('mft_lang')||'en';
+setLang(saved);
+</script>
+</body>
+</html>
