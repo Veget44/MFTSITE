@@ -448,6 +448,37 @@ footer{background:#090D1F;padding:64px 48px 36px}
   </div>
 </section>
 
+
+<section class="section" style="background:var(--navy);padding:72px 48px">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <p class="eyebrow" style="color:rgba(255,255,255,0.4)" data-i18n="teach.eyebrow">FOR TEACHERS</p>
+      <h2 class="sh" style="color:#fff" data-i18n="teach.h2">Teach French on your own terms.</h2>
+      <p class="sp" style="color:rgba(255,255,255,0.5);margin-bottom:28px" data-i18n="teach.sub">Set your own hours, keep 83% of every lesson. We handle payments, scheduling, and student acquisition.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px" id="teach-features"></div>
+      <a href="https://mftsitebackend.vercel.app/auth/login" style="display:inline-block;background:#fff;color:var(--navy);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none" data-i18n="teach.cta">Apply as a teacher →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" id="teach-stats-grid">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;text-align:center">
+        <div style="font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.03em">83%</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px" data-i18n="teach.s1">Of every lesson goes to you</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;text-align:center">
+        <div style="font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.03em">30€</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px" data-i18n="teach.s2">Per hour, paid directly</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;text-align:center">
+        <div style="font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.03em">0</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px" data-i18n="teach.s3">Admin work for you</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;text-align:center">
+        <div style="font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.03em">FLE</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:6px" data-i18n="teach.s4">Certification required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="cta-final">
   <div class="cta-inner">
     <h2 class="cta-h" data-i18n="cf.h">Your first lesson, this week.</h2>
@@ -510,7 +541,7 @@ const T={
     "p3.label":"10-lesson pack","p3.desc":"Ten lessons is typically enough to move up a full CEFR level. Our most committed students choose this.","p3.cta":"Choose this pack →","p3.save":"Save 50 €",
     "pf1":"All teachers","pf2":"Cancel up to 24h before","pf3":"Secure payment","pf4":"Everything in per-lesson","pf5":"Progress tracking","pf6":"Priority booking","pf7":"Monthly progress report","pf8":"Personalised follow-up",
     "cf.h":"Your first real French conversation starts here.","cf.p":"15 minutes, free, no credit card. Meet your teacher and speak from minute one.","cf.btn":"Book my free class →","cf.teach":"Are you a teacher?","cf.teachlink":"Join our team →",
-    "footer.tagline":"The platform that takes you from understanding to speaking.","footer.col1":"Students","footer.find":"Find a teacher","footer.test":"Level test","footer.pricing":"Pricing","footer.col2":"Teachers","footer.join":"Join MFT","footer.commission":"Commission & terms","footer.col3":"Legal","footer.mentions":"Legal notice","footer.cgu":"Terms","footer.privacy":"Privacy","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France"
+    "footer.tagline":"The platform that takes you from understanding to speaking.","footer.col1":"Students","footer.find":"Find a teacher","footer.test":"Level test","footer.pricing":"Pricing","footer.col2":"Teachers","footer.join":"Join MFT","footer.commission":"Commission & terms","footer.col3":"Legal","footer.mentions":"Legal notice","footer.cgu":"Terms","footer.privacy":"Privacy","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France","teach.eyebrow":"강사 모집","teach.h2":"원하는 조건으로 프랑스어를 가르치세요.","teach.sub":"원하는 시간을 설정하고 수업의 83%를 가져가세요. 결제, 일정 관리, 학생 모집은 저희가 합니다.","teach.cta":"강사로 지원하기 →","teach.s1":"수업료의 강사 수취 비율","teach.s2":"시간당, 직접 지급","teach.s3":"행정 업무 없음","teach.s4":"FLE 자격증 필요","teach.features":["원하는 시간 설정", "학생이 찾아옵니다", "Stripe 직접 입금", "AI 수업 후 보고서 자동 생성"],"nav.dashboard":"내 계정 →","teach.eyebrow":"POUR LES PROFESSEURS","teach.h2":"Enseignez le français à vos conditions.","teach.sub":"Vous fixez vos horaires, vous gardez 83% de chaque cours. Nous gérons les paiements, la planification et l'acquisition d'étudiants.","teach.cta":"Candidater comme professeur →","teach.s1":"De chaque cours vous revient","teach.s2":"Par heure, versé directement","teach.s3":"Tâches administratives pour vous","teach.s4":"Certification FLE requise","teach.features":["Vous définissez vos disponibilités", "Les étudiants viennent à vous", "Stripe vous paye directement", "Rapports post-cours générés par IA"],"nav.dashboard":"Mon espace →","teach.eyebrow":"FOR TEACHERS","teach.h2":"Teach French on your own terms.","teach.sub":"Set your own hours, keep 83% of every lesson. We handle payments, scheduling, and student acquisition.","teach.cta":"Apply as a teacher →","teach.s1":"Of every lesson goes to you","teach.s2":"Per hour, paid directly","teach.s3":"Admin work for you","teach.s4":"Certification required","teach.features":["You set your availability", "Students come to you", "Stripe pays you directly", "AI post-lesson reports done for you"],"nav.dashboard":"My account →"
   },
   fr:{
     "nav.why":"Pourquoi MFT","nav.how":"Comment ça marche","nav.pricing":"Tarifs","nav.teach":"Enseigner","nav.login":"Se connecter","nav.cta":"Séance gratuite →",
@@ -535,7 +566,7 @@ const T={
     "p3.label":"Pack 10 cours","p3.desc":"Dix cours suffisent généralement pour franchir un niveau CECRL. Le choix de ceux qui veulent vraiment progresser.","p3.cta":"Choisir ce pack →","p3.save":"Économisez 50 €",
     "pf1":"Tous les professeurs","pf2":"Annulation jusqu'à 24h avant","pf3":"Paiement sécurisé","pf4":"Tout du pack à l'unité","pf5":"Suivi de progression","pf6":"Priorité de réservation","pf7":"Rapport mensuel","pf8":"Suivi personnalisé",
     "cf.h":"Votre première vraie conversation en français commence ici.","cf.p":"15 minutes, gratuites, sans carte bancaire. Rencontrez votre professeur et parlez dès la première minute.","cf.btn":"Réserver ma séance gratuite →","cf.teach":"Vous êtes professeur ?","cf.teachlink":"Rejoignez notre équipe →",
-    "footer.tagline":"La plateforme qui vous fait passer de la compréhension à la parole.","footer.col1":"Étudiants","footer.find":"Trouver un professeur","footer.test":"Tester mon niveau","footer.pricing":"Tarifs","footer.col2":"Professeurs","footer.join":"Rejoindre MFT","footer.commission":"Commission & conditions","footer.col3":"Légal","footer.mentions":"Mentions légales","footer.cgu":"CGU","footer.privacy":"Confidentialité","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. Tous droits réservés.","footer.made":"Made in France"
+    "footer.tagline":"La plateforme qui vous fait passer de la compréhension à la parole.","footer.col1":"Étudiants","footer.find":"Trouver un professeur","footer.test":"Tester mon niveau","footer.pricing":"Tarifs","footer.col2":"Professeurs","footer.join":"Rejoindre MFT","footer.commission":"Commission & conditions","footer.col3":"Légal","footer.mentions":"Mentions légales","footer.cgu":"CGU","footer.privacy":"Confidentialité","footer.contact":"Contact","footer.copy":"© 2025 My French Teacher. Tous droits réservés.","footer.made":"Made in France","teach.eyebrow":"강사 모집","teach.h2":"원하는 조건으로 프랑스어를 가르치세요.","teach.sub":"원하는 시간을 설정하고 수업의 83%를 가져가세요. 결제, 일정 관리, 학생 모집은 저희가 합니다.","teach.cta":"강사로 지원하기 →","teach.s1":"수업료의 강사 수취 비율","teach.s2":"시간당, 직접 지급","teach.s3":"행정 업무 없음","teach.s4":"FLE 자격증 필요","teach.features":["원하는 시간 설정", "학생이 찾아옵니다", "Stripe 직접 입금", "AI 수업 후 보고서 자동 생성"],"nav.dashboard":"내 계정 →","teach.eyebrow":"POUR LES PROFESSEURS","teach.h2":"Enseignez le français à vos conditions.","teach.sub":"Vous fixez vos horaires, vous gardez 83% de chaque cours. Nous gérons les paiements, la planification et l'acquisition d'étudiants.","teach.cta":"Candidater comme professeur →","teach.s1":"De chaque cours vous revient","teach.s2":"Par heure, versé directement","teach.s3":"Tâches administratives pour vous","teach.s4":"Certification FLE requise","teach.features":["Vous définissez vos disponibilités", "Les étudiants viennent à vous", "Stripe vous paye directement", "Rapports post-cours générés par IA"],"nav.dashboard":"Mon espace →","teach.eyebrow":"FOR TEACHERS","teach.h2":"Teach French on your own terms.","teach.sub":"Set your own hours, keep 83% of every lesson. We handle payments, scheduling, and student acquisition.","teach.cta":"Apply as a teacher →","teach.s1":"Of every lesson goes to you","teach.s2":"Per hour, paid directly","teach.s3":"Admin work for you","teach.s4":"Certification required","teach.features":["You set your availability", "Students come to you", "Stripe pays you directly", "AI post-lesson reports done for you"],"nav.dashboard":"My account →"
   },
   ko:{
     "nav.why":"MFT 소개","nav.how":"이용 방법","nav.pricing":"요금","nav.teach":"강사 신청","nav.login":"로그인","nav.cta":"무료 수업 예약 →",
@@ -560,7 +591,7 @@ const T={
     "p3.label":"10회 패키지","p3.desc":"CEFR 레벨 하나를 올리기 충분합니다.","p3.cta":"패키지 선택 →","p3.save":"50 € 절약",
     "pf1":"모든 강사","pf2":"24시간 전까지 취소 가능","pf3":"안전 결제","pf4":"단건 수업 혜택 포함","pf5":"진도 추적","pf6":"우선 예약","pf7":"월간 학습 보고서","pf8":"맞춤 팔로업",
     "cf.h":"이번 주, 첫 번째 수업.","cf.p":"15분 무료 체험 수업을 예약하세요. 신용카드 불필요, 약정 없음.","cf.btn":"무료 수업 예약하기 →","cf.teach":"강사이신가요?","cf.teachlink":"팀에 합류하기 →",
-    "footer.tagline":"이해에서 말하기로 이어주는 플랫폼.","footer.col1":"수강생","footer.find":"강사 찾기","footer.test":"레벨 테스트","footer.pricing":"요금","footer.col2":"강사","footer.join":"MFT 참여","footer.commission":"수수료 & 조건","footer.col3":"법적 고지","footer.mentions":"법적 고지","footer.cgu":"이용약관","footer.privacy":"개인정보처리방침","footer.contact":"문의","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France"
+    "footer.tagline":"이해에서 말하기로 이어주는 플랫폼.","footer.col1":"수강생","footer.find":"강사 찾기","footer.test":"레벨 테스트","footer.pricing":"요금","footer.col2":"강사","footer.join":"MFT 참여","footer.commission":"수수료 & 조건","footer.col3":"법적 고지","footer.mentions":"법적 고지","footer.cgu":"이용약관","footer.privacy":"개인정보처리방침","footer.contact":"문의","footer.copy":"© 2025 My French Teacher. All rights reserved.","footer.made":"Made in France","teach.eyebrow":"강사 모집","teach.h2":"원하는 조건으로 프랑스어를 가르치세요.","teach.sub":"원하는 시간을 설정하고 수업의 83%를 가져가세요. 결제, 일정 관리, 학생 모집은 저희가 합니다.","teach.cta":"강사로 지원하기 →","teach.s1":"수업료의 강사 수취 비율","teach.s2":"시간당, 직접 지급","teach.s3":"행정 업무 없음","teach.s4":"FLE 자격증 필요","teach.features":["원하는 시간 설정", "학생이 찾아옵니다", "Stripe 직접 입금", "AI 수업 후 보고서 자동 생성"],"nav.dashboard":"내 계정 →","teach.eyebrow":"POUR LES PROFESSEURS","teach.h2":"Enseignez le français à vos conditions.","teach.sub":"Vous fixez vos horaires, vous gardez 83% de chaque cours. Nous gérons les paiements, la planification et l'acquisition d'étudiants.","teach.cta":"Candidater comme professeur →","teach.s1":"De chaque cours vous revient","teach.s2":"Par heure, versé directement","teach.s3":"Tâches administratives pour vous","teach.s4":"Certification FLE requise","teach.features":["Vous définissez vos disponibilités", "Les étudiants viennent à vous", "Stripe vous paye directement", "Rapports post-cours générés par IA"],"nav.dashboard":"Mon espace →","teach.eyebrow":"FOR TEACHERS","teach.h2":"Teach French on your own terms.","teach.sub":"Set your own hours, keep 83% of every lesson. We handle payments, scheduling, and student acquisition.","teach.cta":"Apply as a teacher →","teach.s1":"Of every lesson goes to you","teach.s2":"Per hour, paid directly","teach.s3":"Admin work for you","teach.s4":"Certification required","teach.features":["You set your availability", "Students come to you", "Stripe pays you directly", "AI post-lesson reports done for you"],"nav.dashboard":"My account →"
   },
   zh:{
     "nav.why":"为什么选MFT","nav.how":"如何使用","nav.pricing":"价格","nav.teach":"成为教师","nav.login":"登录","nav.cta":"预约免费课 →",
@@ -585,7 +616,7 @@ const T={
     "p3.label":"10节课套餐","p3.desc":"足以提升一个CEFR级别。","p3.cta":"选择此套餐 →","p3.save":"节省50 €",
     "pf1":"所有教师","pf2":"提前24小时可取消","pf3":"安全支付","pf4":"包含单节课所有权益","pf5":"进度跟踪","pf6":"优先预约","pf7":"月度进度报告","pf8":"个性化跟进",
     "cf.h":"您的第一节课，就在本周。","cf.p":"预约15分钟免费体验课。无需信用卡，无任何承诺。","cf.btn":"预约免费体验课 →","cf.teach":"您是教师吗？","cf.teachlink":"加入我们的团队 →",
-    "footer.tagline":"让您从理解到开口表达的平台。","footer.col1":"学生","footer.find":"找教师","footer.test":"水平测试","footer.pricing":"价格","footer.col2":"教师","footer.join":"加入MFT","footer.commission":"佣金与条款","footer.col3":"法律","footer.mentions":"法律声明","footer.cgu":"使用条款","footer.privacy":"隐私政策","footer.contact":"联系我们","footer.copy":"© 2025 My French Teacher. 保留所有权利。","footer.made":"法国制造"
+    "footer.tagline":"让您从理解到开口表达的平台。","footer.col1":"学生","footer.find":"找教师","footer.test":"水平测试","footer.pricing":"价格","footer.col2":"教师","footer.join":"加入MFT","footer.commission":"佣金与条款","footer.col3":"法律","footer.mentions":"法律声明","footer.cgu":"使用条款","footer.privacy":"隐私政策","footer.contact":"联系我们","footer.copy":"© 2025 My French Teacher. 保留所有权利。","footer.made":"法国制造","teach.eyebrow":"教师招募","teach.h2":"按您的条件教授法语。","teach.sub":"自由设置授课时间，保留每节课83%的收入。我们处理支付、排课和学生招募。","teach.cta":"申请成为教师 →","teach.s1":"每节课归您所得","teach.s2":"每小时直接支付","teach.s3":"无行政工作","teach.s4":"需要FLE认证","teach.features":["自由设置时间", "学生主动找您", "Stripe直接打款", "AI课后报告自动生成"],"nav.dashboard":"我的账户 →"
   }
 };
 
@@ -613,6 +644,11 @@ function openModal(type){ window.location.href = type==='teacher' ? 'https://mft
 
 function swTab(){}
 document.addEventListener('keydown',e=>{});
+  // Teach features
+  const tf=t('teach.features');
+  const tfe=document.getElementById('teach-features');
+  if(tfe&&Array.isArray(tf))tfe.innerHTML=tf.map(f=>`<div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.65)"><span style="color:#4ade80;font-weight:700;flex-shrink:0">✓</span>${f}</div>`).join('');
+
 const valid=['en','fr','ko','zh'],saved=localStorage.getItem('mft_lang'),init=valid.includes(saved)?saved:'en';
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',()=>setLang(init)):setLang(init);
 </script>
