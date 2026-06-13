@@ -268,7 +268,7 @@ footer{background:#090D1F;padding:64px 48px 36px}
     <a onclick="scroll2('why')" data-i18n="nav.why">Why MFT</a>
     <a onclick="scroll2('how')" data-i18n="nav.how">How it works</a>
     <a onclick="scroll2('pricing')" data-i18n="nav.pricing">Pricing</a>
-    <a onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" data-i18n="nav.teach">Teach</a>
+    <a onclick="openTeacherModal()" data-i18n="nav.teach">Teach</a>
   </div>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -456,7 +456,7 @@ footer{background:#090D1F;padding:64px 48px 36px}
       <h2 class="sh" style="color:#fff" data-i18n="teach.h2">Teach French on your own terms.</h2>
       <p class="sp" style="color:rgba(255,255,255,0.5);margin-bottom:28px" data-i18n="teach.sub">Set your own hours, keep 83% of every lesson. We handle payments, scheduling, and student acquisition.</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px" id="teach-features"></div>
-      <a href="https://app.myfrenchteacher.fr/auth/welcome" style="display:inline-block;background:#fff;color:var(--navy);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none" data-i18n="teach.cta">Apply as a teacher →</a>
+      <a onclick="openTeacherModal()" style="display:inline-block;background:#fff;color:var(--navy);padding:13px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none" data-i18n="teach.cta">Apply as a teacher →</a>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" id="teach-stats-grid">
       <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;text-align:center">
@@ -502,8 +502,8 @@ footer{background:#090D1F;padding:64px 48px 36px}
         </div>
         <p data-i18n="footer.tagline">The platform that takes you from understanding to speaking.</p>
       </div>
-      <div class="f-col"><h5 data-i18n="footer.col1">Students</h5><ul><li><a data-i18n="footer.find">Find a teacher</a></li><li><a data-i18n="footer.test">Level test</a></li><li><a onclick="scroll2('pricing')" data-i18n="footer.pricing">Pricing</a></li></ul></div>
-      <div class="f-col"><h5 data-i18n="footer.col2">Teachers</h5><ul><li><a onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" data-i18n="footer.join">Join MFT</a></li><li><a data-i18n="footer.commission">Commission & terms</a></li></ul></div>
+      <div class="f-col"><h5 data-i18n="footer.col1">Students</h5><ul><li><a onclick="window.location.href='https://app.myfrenchteacher.fr/teachers'" style="cursor:pointer" data-i18n="footer.find">Find a teacher</a></li><li><a onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" style="cursor:pointer" data-i18n="footer.test">Level test</a></li><li><a onclick="scroll2('pricing')" data-i18n="footer.pricing">Pricing</a></li></ul></div>
+      <div class="f-col"><h5 data-i18n="footer.col2">Teachers</h5><ul><li><a onclick="openTeacherModal()" data-i18n="footer.join">Join MFT</a></li><li><a onclick="window.location.href='mailto:myfrenchteacherpro@gmail.com'" style="cursor:pointer" data-i18n="footer.commission">Commission & terms</a></li></ul></div>
       <div class="f-col"><h5 data-i18n="footer.col3">Legal</h5><ul><li><a data-i18n="footer.mentions">Legal notice</a></li><li><a data-i18n="footer.cgu">Terms</a></li><li><a data-i18n="footer.privacy">Privacy</a></li><li><a data-i18n="footer.contact">Contact</a></li></ul></div>
     </div>
     <div class="f-bottom">
@@ -652,5 +652,174 @@ document.addEventListener('keydown',e=>{});
 const valid=['en','fr','ko','zh'],saved=localStorage.getItem('mft_lang'),init=valid.includes(saved)?saved:'en';
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',()=>setLang(init)):setLang(init);
 </script>
+
+<!-- Teacher Application Modal -->
+<div id="teacher-apply-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:300;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:20px;max-width:500px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.2)">
+    <div style="background:#0C1340;padding:28px 28px 22px;border-radius:20px 20px 0 0">
+      <button onclick="closeTeacherModal()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.08);border:none;width:28px;height:28px;border-radius:50%;font-size:16px;color:rgba(255,255,255,0.5);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit">×</button>
+      <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.02em;margin-bottom:4px">Teach with us</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.4)">Apply to become a My French Teacher instructor</div>
+    </div>
+    <div style="padding:24px 28px 32px">
+      <div id="apply-success" style="display:none;text-align:center;padding:24px">
+        <div style="font-size:48px;margin-bottom:16px">✅</div>
+        <h3 style="font-size:20px;font-weight:800;color:#111;margin-bottom:8px">Application received!</h3>
+        <p style="font-size:14px;color:#6B6B6B;line-height:1.6">We'll review your profile and get back to you within 3-5 business days.</p>
+        <button onclick="closeTeacherModal()" style="margin-top:20px;padding:11px 24px;background:#1840CC;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">Close</button>
+      </div>
+      <form id="teacher-apply-form" onsubmit="submitTeacherApp(event)" style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <label style="font-size:12px;font-weight:600;color:#111">First name *</label>
+            <input name="firstName" required placeholder="Marie" style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <label style="font-size:12px;font-weight:600;color:#111">Last name *</label>
+            <input name="lastName" required placeholder="Dupont" style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'">
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">Email *</label>
+          <input name="email" type="email" required placeholder="marie@example.com" style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">Country of residence *</label>
+          <input name="country" required placeholder="France, Belgium, Canada..." style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">FLE certification *</label>
+          <select name="certification" required style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111;background:#fff">
+            <option value="">Select your certification</option>
+            <option>Master FLE</option>
+            <option>Licence FLE</option>
+            <option>DAEFLE (CNED)</option>
+            <option>DU FLE</option>
+            <option>DELF/DALF examiner</option>
+            <option>Other French teaching certification</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">Years of teaching experience *</label>
+          <select name="experience" required style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111;background:#fff">
+            <option value="">Select</option>
+            <option>Less than 1 year</option>
+            <option>1–3 years</option>
+            <option>3–5 years</option>
+            <option>5–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">Specialties <span style="font-weight:400;color:#999">(optional)</span></label>
+          <input name="specialties" placeholder="Business French, DELF prep, conversation, beginners..." style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">Tell us about yourself *</label>
+          <textarea name="bio" required rows="3" placeholder="Your teaching philosophy, experience, what makes you a great French teacher..." style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111;resize:vertical" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'"></textarea>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <label style="font-size:12px;font-weight:600;color:#111">LinkedIn or website <span style="font-weight:400;color:#999">(optional)</span></label>
+          <input name="linkedin" type="url" placeholder="https://linkedin.com/in/..." style="padding:10px 13px;border-radius:8px;border:1.5px solid #DDD9D0;font-size:14px;font-family:inherit;outline:none;color:#111" onfocus="this.style.borderColor='#1840CC'" onblur="this.style.borderColor='#DDD9D0'">
+        </div>
+        <div id="apply-error" style="display:none;background:#FEE2E2;color:#DC2626;padding:10px 14px;border-radius:8px;font-size:13px"></div>
+        <button type="submit" id="apply-btn" style="padding:13px;background:#1840CC;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px">Submit application →</button>
+        <p style="font-size:11px;color:#999;text-align:center;margin:0">We review all applications within 3–5 business days. We'll contact you by email.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function openTeacherModal() {
+  const m = document.getElementById('teacher-apply-modal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeTeacherModal() {
+  document.getElementById('teacher-apply-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('teacher-apply-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeTeacherModal();
+});
+
+async function submitTeacherApp(e) {
+  e.preventDefault();
+  const btn = document.getElementById('apply-btn');
+  const err = document.getElementById('apply-error');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  err.style.display = 'none';
+
+  const form = e.target;
+  const data = {
+    firstName: form.firstName.value,
+    lastName: form.lastName.value,
+    email: form.email.value,
+    country: form.country.value,
+    certification: form.certification.value,
+    experience: form.experience.value,
+    specialties: form.specialties.value,
+    bio: form.bio.value,
+    linkedin: form.linkedin.value,
+  };
+
+  try {
+    const res = await fetch('https://app.myfrenchteacher.fr/api/teacher/apply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('apply-success').style.display = 'block';
+    } else {
+      const d = await res.json();
+      err.textContent = d.error || 'Something went wrong. Please try again.';
+      err.style.display = 'block';
+      btn.textContent = 'Submit application →';
+      btn.disabled = false;
+    }
+  } catch(ex) {
+    err.textContent = 'Network error. Please try again.';
+    err.style.display = 'block';
+    btn.textContent = 'Submit application →';
+    btn.disabled = false;
+  }
+}
+</script>
+
+<!-- RGPD Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:1px solid #DDD9D0;padding:16px 24px;box-shadow:0 -4px 24px rgba(0,0,0,0.08);font-family:'Inter',sans-serif">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between">
+    <div style="flex:1;min-width:260px">
+      <p style="font-size:13px;color:#444;line-height:1.6;margin:0">
+        🍪 We use cookies to improve your experience and analyze traffic. Google Fonts loads external resources. 
+        <a href="/privacy.html" style="color:#1840CC;text-decoration:underline">Privacy policy</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="rejectCookies()" style="padding:8px 16px;border:1.5px solid #DDD9D0;border-radius:8px;background:transparent;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:#6B6B6B">Reject non-essential</button>
+      <button onclick="acceptCookies()" style="padding:8px 18px;border:none;border-radius:8px;background:#1840CC;color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">Accept all</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function acceptCookies() {
+  localStorage.setItem('mft-cookie-consent', 'accepted');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+function rejectCookies() {
+  localStorage.setItem('mft-cookie-consent', 'rejected');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+window.addEventListener('DOMContentLoaded', function() {
+  const consent = localStorage.getItem('mft-cookie-consent');
+  if (!consent) document.getElementById('cookie-banner').style.display = 'block';
+});
+</script>
+
 </body>
 </html>
