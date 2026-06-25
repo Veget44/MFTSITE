@@ -609,6 +609,26 @@ const T={
 let lang='en';
 function t(k){return T[lang]&&T[lang][k]!==undefined?T[lang][k]:T.en[k]||k}
 function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML}
+function loadRealTeachers(){
+  fetch('https://app.myfrenchteacher.fr/api/teachers')
+    .then(r=>r.json())
+    .then(data=>{
+      const teachers=(data.teachers||[]).slice(0,6);
+      const row=document.getElementById('teachers-row');
+      if(!row)return;
+      if(teachers.length===0){row.innerHTML='';return;}
+      const cols=['#1840CC','#1A7A4A','#C8293A','#7C3AED','#B07C10','#0E7490'];
+      row.innerHTML=teachers.map((t,i)=>{
+        const name=escapeHtml(t.user.name);
+        const initial=name.charAt(0).toUpperCase();
+        const rate=Math.round(t.hourlyRatecents/100);
+        const avatarStyle=t.user.avatarUrl?`background-image:url('${t.user.avatarUrl}');background-size:cover;background-position:center;color:transparent`:`background:${cols[i%cols.length]}`;
+        const specialties=Array.isArray(t.specialties)&&t.specialties.length>0?escapeHtml(t.specialties.slice(0,2).join(', ')):'';
+        return `<a href="https://app.myfrenchteacher.fr/teachers/${t.id}" class="t-card" style="text-decoration:none;color:inherit"><div class="t-av" style="${avatarStyle}">${initial}</div><div><div class="t-name">${name}</div><div class="t-spec">${specialties}</div></div><div class="t-rate">${rate} €<span>/h</span></div></a>`;
+      }).join('');
+    })
+    .catch(()=>{const row=document.getElementById('teachers-row');if(row)row.innerHTML='';});
+}
 function loadFeaturedReviews(){
   fetch('https://app.myfrenchteacher.fr/api/reviews/featured')
     .then(r=>r.json())
@@ -659,6 +679,7 @@ document.addEventListener('keydown',e=>{});
 const valid=['en','fr','ko','zh'],saved=localStorage.getItem('mft_lang'),init=valid.includes(saved)?saved:'en';
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',()=>setLang(init)):setLang(init);
 loadFeaturedReviews();
+loadRealTeachers();
 </script>
 
 <!-- Teacher Application Modal -->
