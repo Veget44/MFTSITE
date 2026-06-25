@@ -376,14 +376,6 @@ footer{background:#090D1F;padding:64px 48px 36px}
   </div>
 </div>
 
-<section class="section testi-section" id="testi" style="background:var(--white);padding-top:0">
-  <div class="wrap">
-    <p class="eyebrow" data-i18n="testi.eyebrow">Testimonials</p>
-    <h2 class="sh" data-i18n="testi.h2">What students say</h2>
-        <div class="testi-grid" id="testi-grid"></div>
-  </div>
-</section>
-
 <section class="section teachers-section" id="teachers">
   <div class="wrap">
     <p class="eyebrow" data-i18n="teachers.eyebrow">Our teachers</p>
@@ -633,7 +625,6 @@ function renderAll(){
   const pi=t('why.prob.items');if(Array.isArray(pi))document.getElementById('prob-items').innerHTML=pi.map(s=>`<div class="wc-item"><span class="wi-icon">✗</span><span>${s}</span></div>`).join('');
   const si2=t('why.sol.items');if(Array.isArray(si2))document.getElementById('sol-items').innerHTML=si2.map(s=>`<div class="wc-item"><span class="wi-icon" style="color:#4ade80">✓</span><span>${s}</span></div>`).join('');
   const hs=t('how.steps');if(Array.isArray(hs))document.getElementById('how-grid').innerHTML=hs.map(s=>`<div class="how-card"><div class="how-num">${s[0]}</div><div class="how-title">${s[1]}</div><div class="how-text">${s[2]}</div><span class="how-badge">${s[3]}</span></div>`).join('');
-  const ti=t('testi.items');const cols=['#1840CC','#1A7A4A','#C8293A'],ins=['L','M','J'];if(Array.isArray(ti))document.getElementById('testi-grid').innerHTML=ti.map((s,i)=>`<div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"${s[0]}"</p><div class="testi-author"><div class="tav" style="background:${cols[i]}">${ins[i]}</div><div><div class="tname">${s[1]}</div><div class="tdetail">${s[2]}</div></div></div></div>`).join('');
   const lvls=t('modal.levels');const sel=document.getElementById('level-select');if(sel&&Array.isArray(lvls))sel.innerHTML=lvls.map(l=>`<option>${l}</option>`).join('');
 }
 function scroll2(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
