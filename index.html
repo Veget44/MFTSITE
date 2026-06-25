@@ -612,7 +612,29 @@ const T={
 
 let lang='en';
 function t(k){return T[lang]&&T[lang][k]!==undefined?T[lang][k]:T.en[k]||k}
+function escapeHtml(str){const d=document.createElement('div');d.textContent=str;return d.innerHTML}
+function loadFeaturedReviews(){
+  fetch('https://app.myfrenchteacher.fr/api/reviews/featured')
+    .then(r=>r.json())
+    .then(data=>{
+      const reviews=data.reviews||[];
+      if(reviews.length===0)return;
+      const cols=['#1840CC','#1A7A4A','#C8293A','#B07C10'];
+      document.getElementById('testi-grid').innerHTML=reviews.map((r,i)=>{
+        const initial=(r.authorName||'A').charAt(0).toUpperCase();
+        const stars='★'.repeat(r.rating)+'☆'.repeat(5-r.rating);
+        const comment=r.comment?escapeHtml(r.comment):'';
+        const name=escapeHtml(r.authorName||'Anonymous');
+        const teacher=escapeHtml(r.teacherName||'');
+        return `<div class="testi-card"><div class="testi-stars">${stars}</div><p class="testi-q">"${comment}"</p><div class="testi-author"><div class="tav" style="background:${cols[i%cols.length]}">${initial}</div><div><div class="tname">${name}</div><div class="tdetail">${teacher}</div></div></div></div>`;
+      }).join('');
+      const section=document.querySelector('[data-dynamic-testi]');
+      if(section)section.style.display='';
+    })
+    .catch(()=>{});
+}
 function setLang(l){
+  lang=l;document.documentElement.lang
   lang=l;document.documentElement.lang=l;
   const f=l==='ko'?'Noto Sans KR':l==='zh'?'Noto Sans SC':'Inter';
   document.body.style.fontFamily=`'${f}',sans-serif`;
@@ -640,6 +662,7 @@ document.addEventListener('keydown',e=>{});
 
 const valid=['en','fr','ko','zh'],saved=localStorage.getItem('mft_lang'),init=valid.includes(saved)?saved:'en';
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',()=>setLang(init)):setLang(init);
+loadFeaturedReviews();
 </script>
 
 <!-- Teacher Application Modal -->
