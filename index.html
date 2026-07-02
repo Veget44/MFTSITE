@@ -461,7 +461,6 @@ footer{background:#090D1F;padding:64px 48px 36px}
   </div>
 </section>
 
-
 <section class="section" style="background:var(--navy);padding:72px 48px">
   <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
     <div>
@@ -685,11 +684,7 @@ function renderAll(){
   const lvls=t('modal.levels');const sel=document.getElementById('level-select');if(sel&&Array.isArray(lvls))sel.innerHTML=lvls.map(l=>`<option>${l}</option>`).join('');
 }
 function scroll2(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-function openModal(type){ window.location.href = type==='teacher' ? 'https://app.myfrenchteacher.fr/auth/login' : 'https://app.myfrenchteacher.fr/auth/register'; }
 
-
-function swTab(){}
-document.addEventListener('keydown',e=>{});
   // Teach features
   const tf=t('teach.features');
   const tfe=document.getElementById('teach-features');
