@@ -279,8 +279,27 @@ footer{background:#090D1F;padding:64px 48px 36px}
     </div>
     <button class="nav-login" onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" data-i18n="nav.login">Sign in</button>
     <button class="nav-cta" onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" data-i18n="nav.cta">Book free class →</button>
+    <button class="nav-burger" id="nav-burger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile menu drawer -->
+<div class="nav-mobile-menu" id="nav-mobile-menu">
+  <div class="nav-mobile-langs">
+    <button class="lang-btn active" onclick="setLang('en');closeMobileMenu()">EN</button>
+    <button class="lang-btn" onclick="setLang('fr');closeMobileMenu()">FR</button>
+    <button class="lang-btn" onclick="setLang('ko');closeMobileMenu()">한국어</button>
+    <button class="lang-btn" onclick="setLang('zh');closeMobileMenu()">中文</button>
+  </div>
+  <button class="nav-mobile-link" onclick="scroll2('why');closeMobileMenu()" data-i18n="nav.why">Why MFT</button>
+  <button class="nav-mobile-link" onclick="scroll2('how');closeMobileMenu()" data-i18n="nav.how">How it works</button>
+  <button class="nav-mobile-link" onclick="scroll2('pricing');closeMobileMenu()" data-i18n="nav.pricing">Pricing</button>
+  <button class="nav-mobile-link" onclick="openTeacherModal();closeMobileMenu()" data-i18n="nav.teach">Teach</button>
+  <button class="nav-mobile-link" onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" data-i18n="nav.login">Sign in</button>
+  <button class="nav-mobile-cta" onclick="window.location.href='https://app.myfrenchteacher.fr/auth/welcome'" data-i18n="nav.cta">Book free class →</button>
+</div>
 
 <section class="hero">
   <div class="hero-grid-bg"></div>
@@ -680,6 +699,22 @@ const valid=['en','fr','ko','zh'],saved=localStorage.getItem('mft_lang'),init=va
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',()=>setLang(init)):setLang(init);
 loadFeaturedReviews();
 loadRealTeachers();
+
+function toggleMobileMenu(){
+  const m=document.getElementById('nav-mobile-menu');
+  m.classList.toggle('open');
+}
+function closeMobileMenu(){
+  document.getElementById('nav-mobile-menu').classList.remove('open');
+}
+// Close on outside click
+document.addEventListener('click',function(e){
+  const menu=document.getElementById('nav-mobile-menu');
+  const burger=document.getElementById('nav-burger');
+  if(menu&&burger&&!menu.contains(e.target)&&!burger.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
 </script>
 
 <!-- Teacher Application Modal -->
