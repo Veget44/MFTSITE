@@ -260,6 +260,167 @@ footer{background:#090D1F;padding:64px 48px 36px}
   footer{padding:48px 20px 28px}.hero{padding:0 20px}
 }
 </style>
+
+<!-- Structured Data JSON-LD — SEO uniquement, aucun cookie -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://myfrenchteacher.fr/#organization",
+      "name": "My French Teacher",
+      "url": "https://myfrenchteacher.fr",
+      "logo": "https://myfrenchteacher.fr/og-image.png",
+      "description": "Cours de français particuliers en ligne avec des professeurs expérimentés. Séance découverte gratuite de 15 minutes.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "myfrenchteacherpro@gmail.com",
+        "contactType": "customer service",
+        "availableLanguage": ["French", "English", "Korean", "Chinese"]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://myfrenchteacher.fr/#service",
+      "name": "Cours de français en ligne 1-on-1",
+      "provider": { "@id": "https://myfrenchteacher.fr/#organization" },
+      "serviceType": "Language tutoring",
+      "description": "Cours particuliers de français en visio avec un professeur expérimenté. Premier cours de 15 minutes gratuit.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Cours à l'unité",
+          "price": "30",
+          "priceCurrency": "EUR",
+          "description": "Un cours de 60 minutes, sans engagement"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pack 5 cours",
+          "price": "145",
+          "priceCurrency": "EUR",
+          "description": "5 cours prépayés à 29€/h"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pack 10 cours",
+          "price": "280",
+          "priceCurrency": "EUR",
+          "description": "10 cours prépayés à 28€/h"
+        }
+      ],
+      "areaServed": "Worldwide",
+      "availableLanguage": "French"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://myfrenchteacher.fr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne le premier cours gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le premier cours dure 15 minutes et est entièrement gratuit. Aucune carte bancaire n'est requise. Vous choisissez un professeur, réservez un créneau, et vous parlez directement avec lui en visio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les cours sont-ils en ligne ou en présentiel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les cours se déroulent exclusivement en visio, peu importe où vous êtes dans le monde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le prix d'un cours de français ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un cours à l'unité coûte 30€ par heure. En achetant un pack de 5 cours, le prix passe à 29€/h. Avec un pack de 10 cours, à 28€/h. Les crédits n'expirent jamais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je annuler un cours réservé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, vous pouvez annuler ou reporter un cours jusqu'à 24 heures avant l'heure prévue sans frais."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- Analytics — chargés uniquement après consentement RGPD -->
+<!-- REMPLACER LES PLACEHOLDERS PAR VOS VRAIS IDs AVANT DE LANCER DES PUBS -->
+<script>
+// Placeholders — à remplacer quand vous avez vos comptes pub
+const MFT_GA4_ID     = 'G-XXXXXXXXXX';   // Google Analytics 4
+const MFT_META_ID    = 'XXXXXXXXXXXXXXXXXX'; // Meta Pixel
+const MFT_GADS_ID    = 'AW-XXXXXXXXXX';  // Google Ads
+
+let analyticsLoaded = false;
+
+function loadAnalytics() {
+  if (analyticsLoaded) return;
+  analyticsLoaded = true;
+
+  // ── Google Analytics 4 ────────────────────────────────────────────
+  if (MFT_GA4_ID && !MFT_GA4_ID.includes('XXX')) {
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MFT_GA4_ID;
+    s.async = true;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', MFT_GA4_ID, { anonymize_ip: true });
+    if (MFT_GADS_ID && !MFT_GADS_ID.includes('XXX')) {
+      gtag('config', MFT_GADS_ID);
+    }
+  }
+
+  // ── Meta Pixel ────────────────────────────────────────────────────
+  if (MFT_META_ID && !MFT_META_ID.includes('XXX')) {
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', MFT_META_ID);
+    fbq('track', 'PageView');
+  }
+}
+
+// Charger si déjà accepté
+if (localStorage.getItem('mft-cookie-consent') === 'accepted') {
+  loadAnalytics();
+}
+
+// Exposer pour le banner
+window.MFT_loadAnalytics = loadAnalytics;
+</script>
+// Tracker une conversion (booking confirmé, formulaire soumis, etc.)
+// Appeler depuis le backend via postMessage ou directement si même domaine
+window.MFT_trackConversion = function(eventName, params) {
+  if (localStorage.getItem('mft-cookie-consent') !== 'accepted') return;
+  // GA4
+  if (window.gtag) {
+    window.gtag('event', eventName, params || {});
+  }
+  // Meta Pixel
+  if (window.fbq) {
+    if (eventName === 'booking_confirmed') window.fbq('track', 'Purchase', { value: params?.value, currency: 'EUR' });
+    if (eventName === 'intro_booked') window.fbq('track', 'Lead');
+    if (eventName === 'teacher_apply') window.fbq('track', 'CompleteRegistration');
+  }
+};
 </head>
 <body>
 
