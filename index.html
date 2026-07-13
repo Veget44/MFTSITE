@@ -1017,6 +1017,7 @@ async function submitTeacherApp(e) {
 function acceptCookies() {
   localStorage.setItem('mft-cookie-consent', 'accepted');
   document.getElementById('cookie-banner').style.display = 'none';
+  if (window.MFT_loadAnalytics) window.MFT_loadAnalytics();
 }
 function rejectCookies() {
   localStorage.setItem('mft-cookie-consent', 'rejected');
