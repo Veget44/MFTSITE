@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://myfrenchteacher.fr/sitemap.xml
