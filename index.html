@@ -437,6 +437,7 @@ if (localStorage.getItem('mft-cookie-consent') === 'accepted') {
 // Exposer pour le banner
 window.MFT_loadAnalytics = loadAnalytics;
 </script>
+<script>
 // Tracker une conversion (booking confirmé, formulaire soumis, etc.)
 // Appeler depuis le backend via postMessage ou directement si même domaine
 window.MFT_trackConversion = function(eventName, params) {
