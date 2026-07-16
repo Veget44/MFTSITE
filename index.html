@@ -821,7 +821,7 @@ function loadRealTeachers(){
         const rate=Math.round(t.hourlyRatecents/100);
         const avatarStyle=t.user.avatarUrl?`background-image:url('${t.user.avatarUrl}');background-size:cover;background-position:center;color:transparent`:`background:${cols[i%cols.length]}`;
         const specialties=Array.isArray(t.specialties)&&t.specialties.length>0?escapeHtml(t.specialties.slice(0,2).join(', ')):'';
-        return `<a href="https://app.myfrenchteacher.fr/teachers/${t.id}" class="t-card" style="text-decoration:none;color:inherit"><div class="t-av" style="${avatarStyle}">${initial}</div><div><div class="t-name">${name}</div><div class="t-spec">${specialties}</div></div><div class="t-rate">${rate} €<span>/h</span></div></a>`;
+        return `<a href="https://app.myfrenchteacher.fr/teachers/${t.id}" class="t-card" style="text-decoration:none;color:inherit"><div class="t-av" style="${avatarStyle}">${initial}</div><div><div class="t-name">${name}</div><div class="t-spec">${specialties}</div></div></a>`;
       }).join('');
     })
     .catch(()=>{const row=document.getElementById('teachers-row');if(row)row.innerHTML='';});
